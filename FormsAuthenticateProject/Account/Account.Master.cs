@@ -11,6 +11,11 @@ namespace FormsAuthenticateProject.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.Request.FilePath == "/Account/Login.aspx")
+            {
+                Label LoginLabel = (Label)ContentPlaceHolder1.FindControl("lblLoginText");
+                if (LoginLabel != null) LoginLabel.Text = Request.QueryString["LoginText"]?.ToString();
+            }
 
         }
     }

@@ -13,5 +13,10 @@ namespace FormsAuthenticateProject.Customer
         {
 
         }
+
+        protected void lnkSignOut_Click(object sender, EventArgs e)
+        {
+            HelperMethods.SignOut();
+        }
     }
 }

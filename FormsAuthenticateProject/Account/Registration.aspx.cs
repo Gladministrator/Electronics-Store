@@ -13,10 +13,7 @@ namespace FormsAuthenticateProject.Account
                 DatabaseObject connection = new DatabaseObject("Get_Security_Questions");
                 DataSet tableInfoData = connection.GetTableRecords();
 
-                if (tableInfoData != null)
-                {
-                    HelperMethods.LoadDropDown(dlSecretQuestion, tableInfoData, "id", "security_question");
-                }
+                if (tableInfoData != null) HelperMethods.LoadDropDown(dlSecretQuestion, tableInfoData, "id", "security_question");
             }
         }
 
@@ -40,7 +37,6 @@ namespace FormsAuthenticateProject.Account
             }
 
         }
-
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx");

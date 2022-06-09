@@ -30,6 +30,7 @@ namespace FormsAuthenticateProject
         public DataSet GetTableRecords()
         {
             adapter.SelectCommand = cmd;
+
             try
             {
                 connection.Open();
@@ -125,6 +126,48 @@ namespace FormsAuthenticateProject
             {
                 error = ex;
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public DataSet VerifyLogin(string email, string password)
+        {
+            var hashedNewPassword = HelperMethods.HashStringToBytes(password, email);
+
+            adapter.SelectCommand = cmd;
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@Password", hashedNewPassword);
+
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet);
+                return dataSet;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public DataSet LoadTable()
+        {
+            adapter.SelectCommand = cmd;
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet);
+                return dataSet;
+            }
+            catch
+            {
+                return null;
             }
             finally
             {

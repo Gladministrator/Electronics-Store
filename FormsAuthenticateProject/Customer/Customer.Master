@@ -16,7 +16,7 @@
           <div style="text-align:right;">
                 <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LinkButton ID="lnkSignOut" runat="server">Sign Out</asp:LinkButton>
+                <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
             </div>
             <br />
         <asp:LinkButton ID="lnkHome" runat="server">Home</asp:LinkButton>

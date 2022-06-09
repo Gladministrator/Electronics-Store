@@ -37,5 +37,32 @@ namespace FormsAuthenticateProject
 
             return sBuilder.ToString();
         }
+
+        public static string RoleRedirect(string role)
+        {
+            if (role == "Administration")
+            {
+                return "~/Account/default.aspx";
+            }
+            else if (role == "Customer")
+            {
+                return "~/Customer/default.aspx";
+            }
+            else if (role == "Shipping")
+            {
+                return "~/Customer/default.aspx";
+            }
+            else
+            {
+                return "~/Account/Login.aspx";
+            }
+        }
+
+        public static void SignOut()
+        {
+            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Abandon();
+            HttpContext.Current.Response.Redirect("~/Account/Login.aspx");
+        }
     }
 }

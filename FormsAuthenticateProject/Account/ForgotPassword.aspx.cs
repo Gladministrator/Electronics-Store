@@ -36,6 +36,7 @@ namespace FormsAuthenticateProject.Account
             {
                 pnlChangePassword.Visible = true;
                 lblCredentialError.Visible = false;
+                btnSubmitCredential.Visible = false;
                 txtEmailAddress.ReadOnly = true;
             }
             else if (result == 0)
@@ -57,8 +58,12 @@ namespace FormsAuthenticateProject.Account
             var result = connection.ChangePassword(txtEmailAddress.Text.Trim().ToString(),
                 txtNewPassword.Text.Trim().ToString());
 
-            if (result >= 0) Response.Redirect("Login.aspx?LoginText=Password Change Completed");
-
+            if (result >= 0) Response.Redirect("Login.aspx?LoginText=Your Password has been changed.");
+            else if (result == -1)
+            {
+                lblErrorChangePassword.Visible = true;
+                lblErrorChangePassword.Text = connection.error.Message;
+            }
         }
     }
 }

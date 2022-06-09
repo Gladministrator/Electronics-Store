@@ -15,5 +15,28 @@ namespace FormsAuthenticateProject.Account
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            DatabaseObject connection = new DatabaseObject("Verify_Login");
+            var result = connection.VerifyLogin(txtEmail.Text.ToString(), txtPassword.Text.ToString());
+
+            if (result != null)
+            {
+                //Create Session with data that other pages can access when signed in
+
+                string role;
+                Session["Email"] = result.Tables[0].Rows[0]["email_address"].ToString();
+                Session["Role"] = role = result.Tables[0].Rows[0]["description"].ToString();
+
+                if (role == "Administration") Response.Redirect("~/Administration/default.aspx");
+                else if (role == "Customer" || role == "Shipping") Response.Redirect("~/Customer/default.aspx");
+            }
+            else
+            {
+                lblLoginMsg.Visible = true;
+                lblLoginMsg.Text = connection.error.Message;
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@
                 <asp:Label ID="lblSecurityQuestion" runat="server" Text="Select Your Secret Question"
                     Font-Bold="True"></asp:Label>
                 <div>
-                    <asp:DropDownList ID="dlSecurityQuestion" runat="server" Width="350px" Height="20px">
+                    <asp:DropDownList ID="dlSecurityQuestion" runat="server" Width="350px" Height="25px">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator InitialValue="-1" ID="rfSecretQuestion"
                         ValidationGroup="Recovery" runat="server" ControlToValidate="dlSecurityQuestion"
@@ -76,6 +76,7 @@
                         ToolTip="Password did not match"
                         ForeColor="Red" ControlToCompare="txtNewPassword"
                         ControlToValidate="txtConfirmNewPassword"></asp:CompareValidator>
+                    <asp:Label ID="lblErrorChangePassword" runat="server" Text="" Visible="false"></asp:Label>
                 </div>
                 <asp:Button ID="btnChangePassword" runat="server" Text="Change Password" CausesValidation="true"
                     ValidationGroup="ChangePassword" OnClick="btnChangePassword_Click" />

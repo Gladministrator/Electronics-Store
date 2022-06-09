@@ -15,6 +15,15 @@ namespace FormsAuthenticateProject.Account
     {
 
         /// <summary>
+        /// lblLoginText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLoginText;
+
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace FormsAuthenticateProject.Account
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
+        /// lblLoginMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblLoginMsg;
+
+        /// <summary>
         /// btnLogin control.
         /// </summary>
         /// <remarks>
@@ -76,14 +94,5 @@ namespace FormsAuthenticateProject.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkCreateProfile;
-
-        /// <summary>
-        /// lblMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

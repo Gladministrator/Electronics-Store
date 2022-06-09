@@ -5,48 +5,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <table width="100%">
-            <tr>
-                <td width="30%"></td>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <asp:Label ID="Label3" runat="server" Text="Username"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align:center">
-                                <asp:Button ID="btnLogin" runat="server" Text="Login" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:LinkButton ID="lnkForgotPassword" runat="server"
-                                    PostBackUrl="~/Account/ForgotPassword.aspx">Forgot Password</asp:LinkButton></td>
-                            <td>
-                                <asp:LinkButton ID="lnkCreateProfile" runat="server"
-                                    PostBackUrl="~/Account/Registration.aspx">Create Account</asp:LinkButton></td>
-                            <td></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div style="text-align: center;">
-        <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="False"
+        <h1 style="text-align:center">Welcome to Substitue Electronics</h1>
+        <asp:Label ID="lblLoginText" runat="server"></asp:Label>
+        <div>
+            <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label>
+            <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+        </div>
+        <div>
+            <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
+
+            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+        </div>
+        <asp:Label ID="lblLoginMsg" runat="server" Text="Label" Visible="False"
             Font-Bold="True" ForeColor="#CC0000"></asp:Label>
+
+        <asp:Button ID="btnLogin" runat="server" Text="Login" 
+            OnClick="btnLogin_Click" />
+        <div>
+            <asp:LinkButton ID="lnkForgotPassword" runat="server"
+                PostBackUrl="~/Account/ForgotPassword.aspx">Forgot Password</asp:LinkButton>
+        </div>
+        <asp:LinkButton ID="lnkCreateProfile" runat="server"
+            PostBackUrl="~/Account/Registration.aspx">Create Account</asp:LinkButton>
     </div>
 </asp:Content>
