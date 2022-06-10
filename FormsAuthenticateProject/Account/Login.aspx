@@ -2,10 +2,11 @@
     CodeBehind="Login.aspx.cs" Inherits="FormsAuthenticateProject.Account.Login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../Styles/AccountStyle.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <h1 style="text-align:center">Welcome to Substitue Electronics</h1>
+    <div class="flex-container">
+        <h1 style="text-align: center">Welcome to Substitue Electronics</h1>
         <asp:Label ID="lblLoginText" runat="server"></asp:Label>
         <div>
             <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label>
@@ -19,7 +20,7 @@
         <asp:Label ID="lblLoginMsg" runat="server" Text="Label" Visible="False"
             Font-Bold="True" ForeColor="#CC0000"></asp:Label>
 
-        <asp:Button ID="btnLogin" runat="server" Text="Login" 
+        <asp:Button ID="btnLogin" runat="server" Text="Login"
             OnClick="btnLogin_Click" />
         <div>
             <asp:LinkButton ID="lnkForgotPassword" runat="server"

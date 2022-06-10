@@ -6,18 +6,19 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" href="../Styles/AccountStyle.css" type="text/css" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div style="text-align:center;">
-        <img src="../Images/public.png" alt="public" />
-    </div>
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <div style="text-align: center;">
+            <img src="../Images/public.png" alt="public" />
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

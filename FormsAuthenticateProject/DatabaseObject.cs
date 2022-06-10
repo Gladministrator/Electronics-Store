@@ -174,5 +174,28 @@ namespace FormsAuthenticateProject
                 connection.Close();
             }
         }
+        public int AddRole(string description, bool status)
+        {
+            adapter.UpdateCommand = cmd;
+            cmd.Parameters.AddWithValue("@Description", description);
+            cmd.Parameters.AddWithValue("@Status", status);
+
+            try
+            {
+                cmd.Prepare();
+                connection.Open();
+                var result = (Int32)cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
