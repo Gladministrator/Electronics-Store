@@ -2,6 +2,8 @@
     CodeBehind="Roles.aspx.cs" Inherits="FormsAuthenticateProject.Administration.Roles" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../Styles/AdministrationStyle.css" type="text/css" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 style="text-align: center">Role Administration</h2>
@@ -15,7 +17,7 @@
                         <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("id") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:Button ID="btnAdd" runat="server" Text="Save" Width="125px"
+                        <asp:Button ID="btnAdd" runat="server" CssClass="styled-btn" Text="Save & Add" Width="125px"
                             OnClick="btnAdd_Click" CausesValidation="true" ValidationGroup="RoleAdd" />
                     </FooterTemplate>
                     <ItemTemplate>
@@ -29,11 +31,10 @@
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("description") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtDescription" runat="server" Height="20px" Width="100%" MaxLength="50"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="rvtxtDescription" runat="server"
-                            ControlToValidate="txtDescription" Text="*"
+                            ControlToValidate="txtDescription"
                             ValidationGroup="RoleAdd"
-                            ForeColor="Red"
                             ErrorMessage="A Description is Required"></asp:RequiredFieldValidator>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -62,6 +63,7 @@
         </asp:GridView>
         <asp:CustomValidator ID="cvDescriptionName" runat="server"
             ErrorMessage="A Role with the same description already exists."></asp:CustomValidator>
-        <asp:ValidationSummary ID="vsGridViewAdd" HeaderText="There were errors with your submission:" runat="server" ValidationGroup="RoleAdd" />
+        <asp:ValidationSummary ID="vsGridViewAdd" HeaderText="There were errors with your submission:"
+            runat="server" ValidationGroup="RoleAdd" />
     </div>
 </asp:Content>

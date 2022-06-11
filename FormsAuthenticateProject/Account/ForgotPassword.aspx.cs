@@ -51,7 +51,6 @@ namespace FormsAuthenticateProject.Account
             }
 
         }
-
         protected void btnChangePassword_Click(object sender, EventArgs e)
         {
             DatabaseObject connection = new DatabaseObject("Change_Password");
@@ -64,6 +63,11 @@ namespace FormsAuthenticateProject.Account
                 lblErrorChangePassword.Visible = true;
                 lblErrorChangePassword.Text = connection.error.Message;
             }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx", true);
         }
     }
 }

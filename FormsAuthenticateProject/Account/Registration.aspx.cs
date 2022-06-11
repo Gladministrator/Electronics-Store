@@ -12,7 +12,6 @@ namespace FormsAuthenticateProject.Account
             {
                 DatabaseObject connection = new DatabaseObject("Get_Security_Questions");
                 DataSet tableInfoData = connection.GetTableRecords();
-
                 if (tableInfoData != null) HelperMethods.LoadDropDown(dlSecretQuestion, tableInfoData, "id", "security_question");
             }
         }
@@ -22,7 +21,7 @@ namespace FormsAuthenticateProject.Account
             DatabaseObject connection = new DatabaseObject("Insert_User");
             var result = connection.AddUser(txtEmailAddress.Text.Trim().ToString(), txtFirstName.Text.Trim().ToString(),
                 txtLastName.Text.Trim().ToString(), txtPhoneNumber.Text.Trim().ToString(), txtPassword.Text.ToString(),
-                Convert.ToInt32(dlSecretQuestion.SelectedValue), txtSecretAnswer.Text.Trim().ToString(), 1, 1);
+                Convert.ToInt32(dlSecretQuestion.SelectedValue), txtSecretAnswer.Text.Trim().ToString(), 2, 1);
 
             if (result > 0) Response.Redirect("Login.aspx?LoginText=Account Successfully Created!");
             else if (result == 0)

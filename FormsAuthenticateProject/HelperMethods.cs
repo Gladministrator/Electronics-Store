@@ -23,7 +23,7 @@ namespace FormsAuthenticateProject
         public static string HashStringToBytes(string plainTextData, string salt)
         {
             //Uses the unique email as the salt value
-            string saltedHash = plainTextData + "U_N" + salt;
+            string saltedHash = plainTextData + "U_N" + salt.ToLower();
             SHA256 sha256Hash = SHA256.Create();
             byte[] data = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(saltedHash));
 

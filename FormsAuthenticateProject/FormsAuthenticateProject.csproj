@@ -75,6 +75,7 @@
     <Content Include="Images\Customer.png" />
     <Content Include="Images\public.png" />
     <Content Include="Styles\AccountStyle.css" />
+    <Content Include="Styles\AdministrationStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,0 +1,28 @@
+﻿* {
+    font-family: Arial,sans-serif;
+}
+
+body {
+    background-color: #6F9387;
+}
+
+.styled-btn {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 0px;
+    width: 175px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.styled-btn:hover {
+    cursor: pointer;
+    background-color: #4CAF70;
+    color: black;
+}
+
+.footer-text-input{
+    width:100%;
+}

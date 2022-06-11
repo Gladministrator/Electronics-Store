@@ -1,4 +1,9 @@
-﻿body {
+﻿*{
+    font-family:Arial,sans-serif;
+}
+
+body {
+    background-color: #6F9387;
 }
 
 .flex-container{
@@ -6,4 +11,57 @@
     justify-content:center;
     align-items:center;
     flex-direction:column;
+    row-gap:15px;
 }
+
+.text-label{
+    width:375px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:20px;
+}
+
+.styled-btn {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 0px;
+    width: 175px;
+    color:white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.styled-btn:hover {
+    cursor: pointer;
+    background-color: #4CAF70;
+    color: black;
+}
+
+.error-text {
+    color:#c00;
+    font-weight:400;
+    font-size:18px;
+}
+
+.text-input{
+    display:flex;
+    align-items:center;
+    width:175px;
+}
+
+.flex-row{
+    display:flex;
+    width:375px;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.text-input-registration {
+    display: flex;
+    align-items: center;
+    width: 230px;
+}
+

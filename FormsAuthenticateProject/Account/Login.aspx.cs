@@ -13,7 +13,7 @@ namespace FormsAuthenticateProject.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack) lblLoginMsg.Visible = false;
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -21,10 +21,9 @@ namespace FormsAuthenticateProject.Account
             DatabaseObject connection = new DatabaseObject("Verify_Login");
             var result = connection.VerifyLogin(txtEmail.Text.ToString(), txtPassword.Text.ToString());
 
-            if (result != null)
+            if (result?.Tables[0]?.Rows?.Count > 0)
             {
                 //Create Session with data that other pages can access when signed in
-
                 string role;
                 Session["Email"] = result.Tables[0].Rows[0]["email_address"].ToString();
                 Session["Role"] = role = result.Tables[0].Rows[0]["description"].ToString();
@@ -32,10 +31,15 @@ namespace FormsAuthenticateProject.Account
                 if (role == "Administration") Response.Redirect("~/Administration/default.aspx");
                 else if (role == "Customer" || role == "Shipping") Response.Redirect("~/Customer/default.aspx");
             }
-            else
+            else if (result == null)
             {
                 lblLoginMsg.Visible = true;
                 lblLoginMsg.Text = connection.error.Message;
+            }
+            else
+            {
+                lblLoginMsg.Visible = true;
+                lblLoginMsg.Text = "Invalid Email or Password";
             }
         }
     }

@@ -42,6 +42,15 @@ namespace FormsAuthenticateProject.Account
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
+        /// rfLoginEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfLoginEmail;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace FormsAuthenticateProject.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// rfLoginPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfLoginPassword;
 
         /// <summary>
         /// lblLoginMsg control.
