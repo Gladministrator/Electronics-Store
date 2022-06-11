@@ -57,12 +57,22 @@ namespace FormsAuthenticateProject
                 return "~/Account/Login.aspx";
             }
         }
-
         public static void SignOut()
         {
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
             HttpContext.Current.Response.Redirect("~/Account/Login.aspx");
+        }
+        public static DataSet LoadTable(string storedProcedure)
+        {
+            DatabaseObject connection = new DatabaseObject(storedProcedure);
+            return connection.LoadTable();
+        }
+        public static bool isDuplicate(DataSet databaseInfo, string item)
+        {
+            List<string> comparasionList = new List<string>();
+            comparasionList = databaseInfo.Tables[0].AsEnumerable().Select(row => row.Field<string>("description").ToLower()).ToList();
+            return comparasionList.Contains(item.ToLower());
         }
     }
 }

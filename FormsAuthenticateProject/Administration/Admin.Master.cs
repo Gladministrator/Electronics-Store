@@ -28,5 +28,15 @@ namespace FormsAuthenticateProject.Administration
         {
             Response.Redirect("Roles.aspx");
         }
+
+        protected void lnkManageCategories_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Category.aspx");
+        }
+
+        protected void lnkCustomerMaintenance_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Customers.aspx");
+        }
     }
 }

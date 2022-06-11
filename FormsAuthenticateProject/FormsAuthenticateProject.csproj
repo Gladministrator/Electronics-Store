@@ -61,6 +61,8 @@
     <Content Include="Account\ForgotPassword.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Registration.aspx" />
+    <Content Include="Administration\Category.aspx" />
+    <Content Include="Administration\Customers.aspx" />
     <Content Include="Administration\default.aspx" />
     <Content Include="Administration\ProductManagement.aspx" />
     <Content Include="Administration\Reporting.aspx" />
@@ -119,6 +121,20 @@
     </Compile>
     <Compile Include="Administration\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Customers.aspx.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Customers.aspx.designer.cs">
+      <DependentUpon>Customers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

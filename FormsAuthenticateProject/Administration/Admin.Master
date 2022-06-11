@@ -25,6 +25,12 @@
             &nbsp;&nbsp;
         <asp:LinkButton ID="lnkManageRoles" runat="server" OnClick="lnkManageRoles_Click">Manage Roles</asp:LinkButton>
             &nbsp;&nbsp;
+        <asp:LinkButton ID="lnkManageCategories" runat="server"
+            OnClick="lnkManageCategories_Click">Manage Categories</asp:LinkButton>
+            &nbsp;&nbsp;
+        <asp:LinkButton ID="lnkCustomerMaintenance" runat="server" 
+                OnClick="lnkCustomerMaintenance_Click">Manage Customers</asp:LinkButton>
+            &nbsp;&nbsp;
         <asp:LinkButton ID="lnkUserMaintenance" runat="server">Manage Users</asp:LinkButton>
             &nbsp;&nbsp;
         <asp:LinkButton ID="lnkReporting" runat="server">Reporting</asp:LinkButton>

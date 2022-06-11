@@ -25,7 +25,7 @@
                 <asp:Label ID="lblSecurityQuestion" runat="server" Text="Select Your Secret Question"
                     Font-Bold="True"></asp:Label>
                 <div>
-                    <asp:DropDownList ID="dlSecurityQuestion" runat="server" Width="275px" Height="30px">
+                    <asp:DropDownList ID="dlSecurityQuestion" runat="server" Width="275px" Height="30px" BackColor="#8fbc8f">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator InitialValue="-1" ID="rfSecretQuestion"
                         ValidationGroup="Recovery" runat="server" ControlToValidate="dlSecurityQuestion"

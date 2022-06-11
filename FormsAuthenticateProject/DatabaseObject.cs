@@ -7,8 +7,6 @@ using System.Text;
 
 namespace FormsAuthenticateProject
 {
-
-
     public class DatabaseObject
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["DBConnectionString"].ConnectionString;
@@ -165,8 +163,9 @@ namespace FormsAuthenticateProject
                 adapter.Fill(dataSet);
                 return dataSet;
             }
-            catch
+            catch (Exception ex)
             {
+                error = ex;
                 return null;
             }
             finally
@@ -174,9 +173,9 @@ namespace FormsAuthenticateProject
                 connection.Close();
             }
         }
-        public int AddRole(string description, bool status)
+        public int AddToTable(string description, bool status)
         {
-            adapter.UpdateCommand = cmd;
+            adapter.InsertCommand = cmd;
             cmd.Parameters.AddWithValue("@Description", description);
             cmd.Parameters.AddWithValue("@Status", status);
 
@@ -191,6 +190,31 @@ namespace FormsAuthenticateProject
             {
                 error = ex;
                 return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public DataSet LoadTableWithParams(params string[] arguments)
+        {
+            for (int i = 0; i < arguments.Length; i++)
+            {
+                cmd.Parameters.AddWithValue(arguments[0], arguments[1]);
+                i++;
+            }
+            adapter.SelectCommand = cmd;
+            try
+            {
+                connection.Open();
+                adapter.Fill(dataSet);
+                return dataSet;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return null;
             }
             finally
             {

@@ -25,30 +25,26 @@ namespace FormsAuthenticateProject.Administration
         }
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            DataSet databaseTable = LoadTableData();
-
-            List<string> rolesList = new List<string>();
-
-            if (databaseTable != null)
-            {
-                rolesList = databaseTable.Tables[0].AsEnumerable().Select(row => row.Field<string>("description")).ToList();
-            }
-
             var roleDescriptionTextBox = (TextBox)gvRoles.FooterRow.FindControl("txtDescription");
             var role = roleDescriptionTextBox.Text;
             var statusDropDown = (DropDownList)gvRoles.FooterRow.FindControl("dlStatus");
             var status = statusDropDown.SelectedValue == "1" ? true : false;
 
-            if (rolesList.Count > 0 && !rolesList.Contains(role))
+            DataSet databaseTable = LoadTableData();
+            if (databaseTable != null)
             {
-                DatabaseObject connection = new DatabaseObject("Add_Role");
-                connection.AddRole(role, status);
-                Response.Redirect("~/Administration/Roles.aspx");
+                if (!HelperMethods.isDuplicate(databaseTable, role))
+                {
+                    DatabaseObject connection = new DatabaseObject("Add_Role");
+                    connection.AddToTable(role, status);
+                    Response.Redirect("~/Administration/Roles.aspx");
+                }
+                else
+                {
+                    cvDescriptionName.IsValid = false;
+                }
             }
-            else
-            {
-                cvDescriptionName.IsValid = false;
-            }
+            else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");
         }
         private DataSet LoadTableData()
         {

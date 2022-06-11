@@ -26,3 +26,43 @@ body {
 .footer-text-input{
     width:100%;
 }
+
+.flex-center > div {
+    display: flex;
+    justify-content: center;
+}
+ 
+.flex-center > div > table > tbody > tr >td:first-child > a {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color:mediumaquamarine;
+}
+
+.flex-col-container{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.styled-btn-delete {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 0px;
+    width: 175px;
+    color: darkred;
+    font-weight:bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.styled-btn-delete:hover {
+    cursor: pointer;
+    background-color: #936f7b;
+    color: black;
+}
