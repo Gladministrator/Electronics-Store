@@ -66,3 +66,24 @@ body {
     background-color: #936f7b;
     color: black;
 }
+
+.col-row-gap-25 {
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.styled-btn-search {
+    background-color: #0080ff;
+    border: 1px solid black;
+    width: 85px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    white-space:normal;
+}
+
+    .styled-btn-search:hover {
+        cursor: pointer;
+        background-color: #00b359;
+        color: black;
+    }
