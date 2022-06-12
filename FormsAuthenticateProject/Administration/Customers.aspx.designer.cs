@@ -42,13 +42,13 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.TextBox txtInputSearch;
 
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// cvCustomerNotFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.WebControls.CustomValidator cvCustomerNotFound;
 
         /// <summary>
         /// btnFirstSearch control.
@@ -94,6 +94,24 @@ namespace FormsAuthenticateProject.Administration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAccount;
+
+        /// <summary>
+        /// lblCustomerID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerID;
+
+        /// <summary>
+        /// lblCustomerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerEmail;
 
         /// <summary>
         /// Label2 control.
@@ -166,6 +184,15 @@ namespace FormsAuthenticateProject.Administration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailAddressMaintenance;
+
+        /// <summary>
+        /// cvEmailChange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvEmailChange;
 
         /// <summary>
         /// rfEmail control.
@@ -267,13 +294,49 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// txtSecretAnswer control.
+        /// txtSecretAnswerMaintenance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSecretAnswer;
+        protected global::System.Web.UI.WebControls.TextBox txtSecretAnswerMaintenance;
+
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+
+        /// <summary>
+        /// dlRoleMaintenance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dlRoleMaintenance;
+
+        /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+
+        /// <summary>
+        /// dlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dlStatus;
 
         /// <summary>
         /// vsProfile control.
@@ -285,13 +348,13 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.ValidationSummary vsProfile;
 
         /// <summary>
-        /// lblMsg control.
+        /// lblErrorMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMsg;
+        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
 
         /// <summary>
         /// btnUpdateProfile control.

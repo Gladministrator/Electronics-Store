@@ -68,10 +68,10 @@ namespace FormsAuthenticateProject
             DatabaseObject connection = new DatabaseObject(storedProcedure);
             return connection.LoadTable();
         }
-        public static bool isDuplicate(DataSet databaseInfo, string item)
+        public static bool isDuplicate(DataSet databaseInfo, string item, string column = "description")
         {
             List<string> comparasionList = new List<string>();
-            comparasionList = databaseInfo.Tables[0].AsEnumerable().Select(row => row.Field<string>("description").ToLower()).ToList();
+            comparasionList = databaseInfo.Tables[0].AsEnumerable().Select(row => row.Field<string>(column).ToLower()).ToList();
             return comparasionList.Contains(item.ToLower());
         }
     }

@@ -33,6 +33,9 @@
             &nbsp;&nbsp;
         <asp:LinkButton ID="lnkUserMaintenance" runat="server">Manage Users</asp:LinkButton>
             &nbsp;&nbsp;
+        <asp:LinkButton ID="lnkManageSuppliers" runat="server" 
+                OnClick="lnkManageSuppliers_Click">Manage Suppliers</asp:LinkButton>
+            &nbsp;&nbsp;
         <asp:LinkButton ID="lnkReporting" runat="server">Reporting</asp:LinkButton>
 
         </div>

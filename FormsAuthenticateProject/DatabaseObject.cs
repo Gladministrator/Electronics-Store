@@ -79,6 +79,48 @@ namespace FormsAuthenticateProject
                 connection.Close();
             }
         }
+        public int UpdateCustomer(int customerNumber, string email, string lastName, string firstName, string phoneNumber,
+           string password, int secretQuestionID, string secretAnswer, int roleID, bool status)
+        {
+            if (password.Length > 0)
+            {
+                var hashedPassword = HelperMethods.HashStringToBytes(password, email);
+                cmd.Parameters.AddWithValue("@Password", hashedPassword);
+
+            }
+            if (secretAnswer.Length > 0)
+            {
+                var hashedSecretAnswer = HelperMethods.HashStringToBytes(secretAnswer, email);
+                cmd.Parameters.AddWithValue("@SecretAnswer", hashedSecretAnswer);
+            }
+
+            adapter.UpdateCommand = cmd;
+            cmd.Parameters.AddWithValue("@CustomerID", customerNumber);
+            cmd.Parameters.AddWithValue("@Email", email);
+            cmd.Parameters.AddWithValue("@LastName", lastName);
+            cmd.Parameters.AddWithValue("@FirstName", firstName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+            cmd.Parameters.AddWithValue("@SecretQuestionID", secretQuestionID);
+            cmd.Parameters.AddWithValue("@RoleID", roleID);
+            cmd.Parameters.AddWithValue("@Status", status);
+
+            try
+            {
+                cmd.Prepare();
+                connection.Open();
+                var result = (Int32)cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         public int VerifyRecoveryCredentials(string email, int secretQuestionID, string secretAnswer)
         {
             var hashedSecretAnswer = HelperMethods.HashStringToBytes(secretAnswer, email);

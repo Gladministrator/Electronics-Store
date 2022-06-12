@@ -51,6 +51,5 @@ namespace FormsAuthenticateProject.Administration
                 cvCategoryDescription.IsValid = false;
             }
         }
-
     }
 }

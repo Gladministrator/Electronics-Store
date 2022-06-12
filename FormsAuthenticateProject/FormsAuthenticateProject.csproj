@@ -67,6 +67,7 @@
     <Content Include="Administration\ProductManagement.aspx" />
     <Content Include="Administration\Reporting.aspx" />
     <Content Include="Administration\Roles.aspx" />
+    <Content Include="Administration\Suppliers.aspx" />
     <Content Include="Administration\UserMaintenance.aspx" />
     <Content Include="Customer\ChangePassword.aspx" />
     <Content Include="Customer\default.aspx" />
@@ -163,6 +164,13 @@
     </Compile>
     <Compile Include="Administration\Roles.aspx.designer.cs">
       <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\Suppliers.aspx.cs">
+      <DependentUpon>Suppliers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\Suppliers.aspx.designer.cs">
+      <DependentUpon>Suppliers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\UserMaintenance.aspx.cs">
       <DependentUpon>UserMaintenance.aspx</DependentUpon>
