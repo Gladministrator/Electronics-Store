@@ -243,7 +243,7 @@ namespace FormsAuthenticateProject
         {
             for (int i = 0; i < arguments.Length; i++)
             {
-                cmd.Parameters.AddWithValue(arguments[0], arguments[1]);
+                cmd.Parameters.AddWithValue(arguments[i], arguments[i + 1]);
                 i++;
             }
             adapter.SelectCommand = cmd;
@@ -257,6 +257,32 @@ namespace FormsAuthenticateProject
             {
                 error = ex;
                 return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public int InsertWithParams(params string[] arguments)
+        {
+            for (int i = 0; i < arguments.Length; i++)
+            {
+                // adds any number of parameters, even number being the parameter in SQL and odd being the value
+                cmd.Parameters.AddWithValue(arguments[i], arguments[i + 1]);
+                i++;
+            }
+            adapter.InsertCommand = cmd;
+            try
+            {
+                cmd.Prepare();
+                connection.Open();
+                var result = (Int32)cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return -1;
             }
             finally
             {

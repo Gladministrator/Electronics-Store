@@ -11,9 +11,12 @@
             AutoGenerateEditButton="True"
             ShowFooter="True"
             FooterStyle-CssClass="footer-style" RowStyle-HorizontalAlign="Center"
-            RowStyle-BackColor="#6f8d93" HeaderStyle-BackColor="#93756f"
+            RowStyle-BackColor="#6f8d93" 
+            HeaderStyle-BackColor="#93756f"
             FooterStyle-BackColor="#4e685f"
-            FooterStyle-HorizontalAlign="Center" DataSourceID="SqlDataSource1" EditRowStyle-BackColor="#936f7b"
+            FooterStyle-HorizontalAlign="Center"
+            EditRowStyle-BackColor="#936f7b"
+            DataSourceID="SqlDataSource1" 
             DataKeyNames="id" EditRowStyle-HorizontalAlign="Center"
             OnRowUpdating="TaskGridView_RowUpdating">
             <AlternatingRowStyle BackColor="#6F9375" HorizontalAlign="Center"></AlternatingRowStyle>
@@ -33,7 +36,8 @@
                             ID="rfEditCategoryDescription" runat="server"
                             ErrorMessage="Description is Required"
                             ControlToValidate="txtCategoryDescription" Text="*"
-                            ForeColor="Red" ToolTip="A Description must be entered"></asp:RequiredFieldValidator>
+                            ForeColor="Red" ToolTip="A Description must be entered">
+                        </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtCategoryDescription" runat="server" Height="20px" Width="175px"

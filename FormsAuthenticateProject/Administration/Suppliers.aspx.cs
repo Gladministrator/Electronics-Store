@@ -27,5 +27,38 @@ namespace FormsAuthenticateProject.Administration
                 cvSupplierDescription.IsValid = false;
             }
         }
+
+        protected void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            var supplierTextBox = (TextBox)gvSupplierAdmin.FooterRow.FindControl("txtSupplierName");
+            var supplierName = supplierTextBox.Text.Trim();
+            var supplierAddressTextBox = (TextBox)gvSupplierAdmin.FooterRow.FindControl("txtSupplierAddress");
+            var supplierAddress = supplierAddressTextBox.Text.Trim();
+            var supplierContactTextbox = (TextBox)gvSupplierAdmin.FooterRow.FindControl("txtSupplierContact");
+            var supplierContact = supplierContactTextbox.Text.Trim();
+            var supplierPhoneTextBox = (TextBox)gvSupplierAdmin.FooterRow.FindControl("txtSupplierPhone");
+            var supplierPhone = supplierPhoneTextBox.Text.Trim();
+            var statusCheckBox = (CheckBox)gvSupplierAdmin.FooterRow.FindControl("cbSupplierStatus");
+            var status = statusCheckBox.Checked.ToString();
+
+            DataSet databaseTable = HelperMethods.LoadTable("Load_Suppliers");
+            if (databaseTable != null)
+            {
+
+                if (!HelperMethods.isDuplicate(databaseTable, supplierName, "company_name"))
+                {
+                    DatabaseObject connection = new DatabaseObject("Add_Supplier");
+                    connection.InsertWithParams("@CompanyName", supplierName, "@CompanyAddress", supplierAddress,
+                        "@MainContactName", supplierContact, "@MainPhone", supplierPhone, "@Status", status);
+
+                    Response.Redirect("~/Administration/Suppliers.aspx");
+                }
+                else
+                {
+                    cvSupplierDescription.IsValid = false;
+                }
+            }
+            else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");
+        }
     }
 }

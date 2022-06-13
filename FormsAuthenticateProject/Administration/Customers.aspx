@@ -44,7 +44,7 @@
 
     <asp:Panel ID="pnlAccount" runat="server" CssClass="flex-container" Visible="false">
         <div class="customer-info-box">
-            <span>Customer ID:
+            <span>ID:
                 <asp:Label ID="lblCustomerID" runat="server" Text=""></asp:Label></span>
             <span>Email:
                 <asp:Label ID="lblCustomerEmail" runat="server" Text=""></asp:Label></span>

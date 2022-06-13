@@ -43,5 +43,10 @@ namespace FormsAuthenticateProject.Administration
         {
             Response.Redirect("Suppliers.aspx");
         }
+
+        protected void lnkProducts_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProductManagement.aspx");
+        }
     }
 }

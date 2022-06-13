@@ -61,7 +61,7 @@ namespace FormsAuthenticateProject
         {
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
-            HttpContext.Current.Response.Redirect("~/Account/Login.aspx");
+            HttpContext.Current.Response.Redirect("~/Account/Login.aspx?LoginText=You have now signed out");
         }
         public static DataSet LoadTable(string storedProcedure)
         {

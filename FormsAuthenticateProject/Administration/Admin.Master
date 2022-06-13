@@ -21,7 +21,7 @@
             <br />
             <asp:LinkButton ID="lnkHome" runat="server">Home</asp:LinkButton>
             &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkProducts" runat="server">Manage Products</asp:LinkButton>
+        <asp:LinkButton ID="lnkProducts" runat="server" OnClick="lnkProducts_Click">Manage Products</asp:LinkButton>
             &nbsp;&nbsp;
         <asp:LinkButton ID="lnkManageRoles" runat="server" OnClick="lnkManageRoles_Click">Manage Roles</asp:LinkButton>
             &nbsp;&nbsp;
