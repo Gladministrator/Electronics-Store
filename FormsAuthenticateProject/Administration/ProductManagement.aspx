@@ -18,9 +18,10 @@
             RowStyle-BackColor="#6f8d93"
             HeaderStyle-BackColor="#93756f"
             FooterStyle-BackColor="#4e685f"
-            FooterStyle-HorizontalAlign="Center" DataSourceID="SqlDataSource1"
+            FooterStyle-HorizontalAlign="Center"
             EditRowStyle-BackColor="#936f7b" EditRowStyle-HorizontalAlign="Center"
-            OnRowUpdating="TaskGridView_RowUpdatingSupplier" DataKeyNames="id">
+            OnRowUpdating="TaskGridView_RowUpdatingSupplier" DataKeyNames="id" DataSourceID="SqlDataSource1"
+            OnRowDataBound="gvProductAdmin_RowDataBound">
             <AlternatingRowStyle BackColor="#6F9375" HorizontalAlign="Center"></AlternatingRowStyle>
             <Columns>
                 <asp:TemplateField HeaderText="Product" SortExpression="product_name">
@@ -47,15 +48,11 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("product_name") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Supplier">
+                <asp:TemplateField HeaderText="Supplier Company">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("supplier_id") %>'></asp:TextBox>
-                        <asp:RequiredFieldValidator
-                            ID="rfTextBox2" runat="server"
-                            ErrorMessage="Address is Required"
-                            ControlToValidate="TextBox2" Text="*"
-                            ForeColor="Red" ToolTip="An Address must be entered">
-                        </asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="dlSupplierEdit" runat="server" BackColor="#8fbc8f" Width="100%" Height="100%">
+                        </asp:DropDownList>
+                        <asp:HiddenField runat="server" ID="HiddenFieldSupplier" Value='<%# Bind("supplier_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtSupplierAddress" runat="server"></asp:TextBox>
@@ -68,19 +65,15 @@
                         </asp:RequiredFieldValidator>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("supplier_id") %>'></asp:Label>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("company_name") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Contact" SortExpression="main_contact_name">
+                <asp:TemplateField HeaderText="Category" SortExpression="category">
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBox3" runat="server"
-                            Text='<%# Bind("category_id") %>'></asp:TextBox>
-                        <asp:RequiredFieldValidator
-                            ID="rfTextBox3" runat="server"
-                            ErrorMessage="Contact Name is Required"
-                            ControlToValidate="TextBox3" Text="*"
-                            ForeColor="Red" ToolTip="A Contact Name must be entered">
-                        </asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="dlCategoryEdit" runat="server" Width="100%" BackColor="#8fbc8f">
+                        </asp:DropDownList>
+                        <asp:HiddenField ID="HiddenField1" runat="server" 
+                            Value='<%# Bind("category_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtSupplierContact" runat="server"></asp:TextBox>
@@ -92,20 +85,14 @@
                             ValidationGroup="SupplierInsert"></asp:RequiredFieldValidator>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("category_id") %>'></asp:Label>
+                        <asp:Label ID="lblCategory" runat="server" Text='<%# Bind("category") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Contact Phone"
-                    SortExpression="main_contact_phone">
+                <asp:TemplateField HeaderText="Price"
+                    SortExpression="price">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox4" runat="server"
                             Text='<%# Bind("retail_price") %>'></asp:TextBox>
-                        <asp:RequiredFieldValidator
-                            ID="rfTextBox4" runat="server"
-                            ErrorMessage="Phone Number is Required"
-                            ControlToValidate="TextBox4" Text="*"
-                            ForeColor="Red" ToolTip="A Phone Number must be entered">
-                        </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtSupplierPhone" runat="server"></asp:TextBox>
@@ -132,26 +119,27 @@
                             Enabled="false" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="id" InsertVisible="False" SortExpression="id">
+                <asp:TemplateField HeaderText="ID" InsertVisible="False" SortExpression="id">
                     <EditItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("id") %>'></asp:Label>
+                        <asp:Label ID="lblIdentity" runat="server" Text='<%# Eval("id") %>'></asp:Label>
                     </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("id") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:LinkButton ID="lnkDeleteSupplier" runat="server" CausesValidation="False"
+                            CommandName="Delete" Text="Delete" CssClass="styled-btn-delete"
+                            OnClientClick="return confirm('Are you sure you want to delete?');"></asp:LinkButton>
+                    </ItemTemplate>
                     <FooterTemplate>
                         <asp:Button ID="Button1" runat="server" Text="Insert Supplier"
                             CssClass="styled-btn"
                             OnClick="btnAddSupplier_Click"
                             ValidationGroup="SupplierInsert" CausesValidation="true" />
                     </FooterTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("id") %>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkDeleteSupplier" runat="server" CausesValidation="False"
-                            CommandName="Delete" Text="Delete" CssClass="styled-btn-delete"
-                            OnClientClick="return confirm('Are you sure you want to delete?');"></asp:LinkButton>
-                    </ItemTemplate>
                 </asp:TemplateField>
-
             </Columns>
 
             <EditRowStyle BackColor="#936F7B"></EditRowStyle>
@@ -170,7 +158,7 @@
             DeleteCommand="DELETE FROM [product] WHERE [id] = @id"
             InsertCommand="INSERT INTO [product] ([product_name], [supplier_id], [category_id], [retail_price], [status]) VALUES (@product_name, @supplier_id, @category_id, @retail_price, @status)"
             ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
-            SelectCommand="SELECT [id], [product_name], [supplier_id], [category_id], [retail_price], [status] FROM [product] ORDER BY [product_name]"
+            SelectCommand="Load_Products_View" SelectCommandType="StoredProcedure"
             UpdateCommand="UPDATE [product] SET [product_name] = @product_name, [supplier_id] = @supplier_id, [category_id] = @category_id, [retail_price] = @retail_price, [status] = @status WHERE [id] = @id">
             <DeleteParameters>
                 <asp:Parameter Name="id" Type="Int32" />
@@ -192,8 +180,8 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <div class="flex-col-container">
-            <asp:CustomValidator ID="cvSupplierDescription" runat="server"
-                ErrorMessage="A Supplier with the same name already exists."></asp:CustomValidator>
+            <asp:CustomValidator ID="cvUpdate" runat="server"
+                ErrorMessage="Please select a Supplier/Category."></asp:CustomValidator>
             <asp:ValidationSummary ID="vsSupplierSummary" HeaderText="There were errors with your submission:"
                 runat="server" ValidationGroup="SupplierInsert" />
         </div>
