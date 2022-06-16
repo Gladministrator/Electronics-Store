@@ -12,6 +12,10 @@ namespace FormsAuthenticateProject.Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            //var categoryDropDown = (DropDownList)gvProductAdmin.FooterRow.FindControl("dlInsertCategory");
+            //DataSet data = HelperMethods.LoadTable("Load_Category_Table");
+            //HelperMethods.LoadDropDown(categoryDropDown, data, "id", "description");
         }
 
         protected void TaskGridView_RowUpdatingSupplier(object sender, GridViewUpdateEventArgs e)
@@ -19,14 +23,24 @@ namespace FormsAuthenticateProject.Administration
             var identity = (Label)gvProductAdmin.Rows[e.RowIndex].FindControl("lblIdentity");
             var categoryDropDown = (DropDownList)gvProductAdmin.Rows[e.RowIndex].FindControl("dlCategoryEdit");
             var supplierDropDown = (DropDownList)gvProductAdmin.Rows[e.RowIndex].FindControl("dlSupplierEdit");
-            if (supplierDropDown.SelectedValue == "-1" || categoryDropDown.SelectedValue == "-1")
+            if (supplierDropDown.SelectedValue == "-1")
             {
+                cvUpdateSupplier.IsValid = false;
                 e.Cancel = true;
             }
-            SqlDataSource1.UpdateCommand = $"UPDATE [product] SET [product_name] = '{e.NewValues["product_name"].ToString().Trim()}'," +
-                $" [supplier_id] = {Convert.ToInt32(supplierDropDown.SelectedValue)},[category_id] = {Convert.ToInt32(categoryDropDown.SelectedValue)}, " +
-                $"[retail_price] = {e.NewValues["retail_price"]}, " +
-                $"[status] = TRY_CAST ('{e.NewValues["status"]}' AS bit) WHERE [id] = {Convert.ToInt32(identity.Text)}";
+            else if (categoryDropDown.SelectedValue == "-1")
+            {
+                cvUpdateCategory.IsValid = false;
+                e.Cancel = true;
+            }
+            else
+            {
+                SqlDataSource1.UpdateCommand = "UPDATE [product] SET [product_name] = @product_name," +
+                $"[supplier_id] = {Convert.ToInt32(supplierDropDown.SelectedValue)},[category_id] = {Convert.ToInt32(categoryDropDown.SelectedValue)}, " +
+                    "[retail_price] = @retail_price, " +
+                    "[status] = TRY_CAST (@status AS bit) WHERE [id] = @id";
+            }
+
         }
 
         protected void btnAddSupplier_Click(object sender, EventArgs e)
@@ -56,7 +70,6 @@ namespace FormsAuthenticateProject.Administration
                 }
                 else
                 {
-                    cvUpdate.IsValid = false;
                 }
             }
             else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");

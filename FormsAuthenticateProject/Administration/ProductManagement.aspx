@@ -50,19 +50,22 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Supplier Company">
                     <EditItemTemplate>
-                        <asp:DropDownList ID="dlSupplierEdit" runat="server" BackColor="#8fbc8f" Width="100%" Height="100%">
+                        <asp:DropDownList ID="dlSupplierEdit" runat="server" BackColor="#8fbc8f" Width="100%"
+                            Height="100%">
                         </asp:DropDownList>
                         <asp:HiddenField runat="server" ID="HiddenFieldSupplier" Value='<%# Bind("supplier_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtSupplierAddress" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator
-                            ID="rftxtSupplierAddress" runat="server"
-                            ErrorMessage="Address is Required"
-                            ControlToValidate="txtSupplierAddress" Text="*"
-                            ForeColor="Red" ToolTip="An Address must be entered"
-                            ValidationGroup="SupplierInsert">
-                        </asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="dlInsertSupplier" runat="server" 
+                            DataSourceID="SqlDataSource2" DataTextField="company_name" DataValueField="id"
+                            BackColor="#8fbc8f" Width="100%">
+                            <asp:ListItem Value="-1">Select</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
+                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" 
+                            SelectCommand="SELECT [id], [company_name] FROM [supplier] ORDER BY [company_name]">
+                        </asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("company_name") %>'></asp:Label>
@@ -72,17 +75,19 @@
                     <EditItemTemplate>
                         <asp:DropDownList ID="dlCategoryEdit" runat="server" Width="100%" BackColor="#8fbc8f">
                         </asp:DropDownList>
-                        <asp:HiddenField ID="HiddenField1" runat="server" 
+                        <asp:HiddenField ID="HiddenField1" runat="server"
                             Value='<%# Bind("category_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtSupplierContact" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator
-                            ID="rftxtSupplierContact" runat="server"
-                            ErrorMessage="Contact Name is Required"
-                            ControlToValidate="txtSupplierContact" Text="*"
-                            ForeColor="Red" ToolTip="A Contact Name must be entered"
-                            ValidationGroup="SupplierInsert"></asp:RequiredFieldValidator>
+                        <asp:DropDownList ID="dlInsertCategory" runat="server" 
+                            DataSourceID="SqlDataSource3" DataTextField="description" DataValueField="id"
+                            BackColor="#8fbc8f" Width="100%">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
+                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
+                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" 
+                            SelectCommand="SELECT [id], [description] FROM [category] UNION SELECT -1 AS id,'Select' AS description ORDER BY [id]">
+                        </asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblCategory" runat="server" Text='<%# Bind("category") %>'></asp:Label>
@@ -92,7 +97,21 @@
                     SortExpression="price">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox4" runat="server"
-                            Text='<%# Bind("retail_price") %>'></asp:TextBox>
+                            Text='<%# Bind("retail_price","{0:0.00}") %>'>
+                        </asp:TextBox>
+                        <asp:RequiredFieldValidator
+                            ID="rfTextBox4" runat="server"
+                            ErrorMessage="Price is Required"
+                            ControlToValidate="TextBox4" Text="*"
+                            ForeColor="Red" ToolTip="A Price must be entered">
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1"
+                                runat="server"
+                                ErrorMessage="Price must be in correct format"
+                                ControlToValidate="TextBox4" Text="*"
+                                ForeColor="Red" ToolTip="Please enter a price in decimal format eg. 0.00"
+                                ValidationExpression="\d+(\.\d+){0,1}">
+                            </asp:RegularExpressionValidator>
+                        </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtSupplierPhone" runat="server"></asp:TextBox>
@@ -104,7 +123,7 @@
                             ValidationGroup="SupplierInsert"></asp:RequiredFieldValidator>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("retail_price") %>'></asp:Label>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("retail_price","{0:c}") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Status" SortExpression="status">
@@ -180,8 +199,10 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <div class="flex-col-container">
-            <asp:CustomValidator ID="cvUpdate" runat="server"
-                ErrorMessage="Please select a Supplier/Category."></asp:CustomValidator>
+            <asp:CustomValidator ID="cvUpdateSupplier" runat="server"
+                ErrorMessage="Please select a Supplier"></asp:CustomValidator>
+            <asp:CustomValidator ID="cvUpdateCategory" runat="server"
+                ErrorMessage="Please select a Category"></asp:CustomValidator>
             <asp:ValidationSummary ID="vsSupplierSummary" HeaderText="There were errors with your submission:"
                 runat="server" ValidationGroup="SupplierInsert" />
         </div>

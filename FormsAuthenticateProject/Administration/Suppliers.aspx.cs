@@ -26,6 +26,10 @@ namespace FormsAuthenticateProject.Administration
                 e.Cancel = true;
                 cvSupplierDescription.IsValid = false;
             }
+            else
+            {
+                e.NewValues["company_name"] = Server.HtmlDecode(newValue);
+            }
         }
 
         protected void btnAddSupplier_Click(object sender, EventArgs e)
