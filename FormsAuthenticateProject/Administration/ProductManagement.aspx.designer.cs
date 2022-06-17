@@ -15,6 +15,33 @@ namespace FormsAuthenticateProject.Administration
     {
 
         /// <summary>
+        /// dlSupplierSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dlSupplierSelect;
+
+        /// <summary>
+        /// SqlDataSource4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
+
+        /// <summary>
+        /// pnlGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlGrid;
+
+        /// <summary>
         /// gvProductAdmin control.
         /// </summary>
         /// <remarks>
@@ -51,12 +78,12 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.CustomValidator cvUpdateCategory;
 
         /// <summary>
-        /// vsSupplierSummary control.
+        /// cvCustomText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary vsSupplierSummary;
+        protected global::System.Web.UI.WebControls.CustomValidator cvCustomText;
     }
 }

@@ -18,7 +18,7 @@ namespace FormsAuthenticateProject.Administration
             //HelperMethods.LoadDropDown(categoryDropDown, data, "id", "description");
         }
 
-        protected void TaskGridView_RowUpdatingSupplier(object sender, GridViewUpdateEventArgs e)
+        protected void TaskGridView_RowUpdatingProduct(object sender, GridViewUpdateEventArgs e)
         {
             var identity = (Label)gvProductAdmin.Rows[e.RowIndex].FindControl("lblIdentity");
             var categoryDropDown = (DropDownList)gvProductAdmin.Rows[e.RowIndex].FindControl("dlCategoryEdit");
@@ -43,33 +43,59 @@ namespace FormsAuthenticateProject.Administration
 
         }
 
-        protected void btnAddSupplier_Click(object sender, EventArgs e)
+        protected void btnAddProduct_Click(object sender, EventArgs e)
         {
-            var supplierTextBox = (TextBox)gvProductAdmin.FooterRow.FindControl("dlCategoryEdit");
-            var supplierName = supplierTextBox.Text.Trim();
-            var supplierAddressTextBox = (TextBox)gvProductAdmin.FooterRow.FindControl("txtSupplierAddress");
-            var supplierAddress = supplierAddressTextBox.Text.Trim();
-            var supplierContactTextbox = (TextBox)gvProductAdmin.FooterRow.FindControl("txtSupplierContact");
-            var supplierContact = supplierContactTextbox.Text.Trim();
-            var supplierPhoneTextBox = (TextBox)gvProductAdmin.FooterRow.FindControl("txtSupplierPhone");
-            var supplierPhone = supplierPhoneTextBox.Text.Trim();
-            var statusCheckBox = (CheckBox)gvProductAdmin.FooterRow.FindControl("cbSupplierStatus");
+            var productText = (TextBox)gvProductAdmin.FooterRow.FindControl("txtProductName");
+            var product = productText.Text.Trim();
+            var supplierDropDown = (DropDownList)gvProductAdmin.FooterRow.FindControl("dlInsertSupplier");
+            var supplier = supplierDropDown.SelectedValue;
+            var categoryDropDown = (DropDownList)gvProductAdmin.FooterRow.FindControl("dlInsertCategory");
+            var category = categoryDropDown.SelectedValue;
+            var priceText = (TextBox)gvProductAdmin.FooterRow.FindControl("txtPriceFooter");
+            var price = priceText.Text.Trim();
+            var statusCheckBox = (CheckBox)gvProductAdmin.FooterRow.FindControl("cbStatus");
             var status = statusCheckBox.Checked.ToString();
 
-            DataSet databaseTable = HelperMethods.LoadTable("Load_Products");
-            if (databaseTable != null)
+            if (supplier == "-1")
             {
+                cvCustomText.ErrorMessage = "Please Select a Supplier";
+                cvCustomText.IsValid = false;
+                return;
+            }
+            else if (category == "-1")
+            {
+                cvCustomText.ErrorMessage = "Please Select a Category";
+                cvCustomText.IsValid = false;
+                return;
+            }
 
-                if (!HelperMethods.isDuplicate(databaseTable, supplierName, "product_name"))
+            DataSet dataset = HelperMethods.LoadTable("Load_Products");
+            if (dataset != null)
+            {
+                // Check if there's a duplicate
+                DataTable productTable = dataset.Tables[0];
+                var dataList = productTable.AsEnumerable()
+                    .Where(row => row.Field<string>("product_name") == product
+                    && row.Field<int>("supplier_id") == Convert.ToInt32(supplier))
+                    .Select(row => row.Field<int>("id"))
+                    .ToList();
+
+                if (dataList.Count == 0)
                 {
-                    DatabaseObject connection = new DatabaseObject("Add_Supplier");
-                    connection.InsertWithParams("@CompanyName", supplierName, "@CompanyAddress", supplierAddress,
-                        "@MainContactName", supplierContact, "@MainPhone", supplierPhone, "@Status", status);
+                    DatabaseObject connection = new DatabaseObject("Add_Product");
+                    var result = connection.InsertWithParams("@ProductName", product, "@SupplierID", supplier,
+                        "@CategoryID", category, "@Price", price, "@Status", status);
 
-                    Response.Redirect("~/Administration/Suppliers.aspx");
+                    if (result >= 0)
+                    {
+                        gvProductAdmin.DataBind();
+                    }
+                    else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");
                 }
                 else
                 {
+                    cvCustomText.IsValid = false;
+                    cvCustomText.ErrorMessage = "A duplicate record already exists";
                 }
             }
             else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");
@@ -98,6 +124,19 @@ namespace FormsAuthenticateProject.Administration
                 }
             }
 
+        }
+
+        protected void dlSupplierSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var supplierID = Convert.ToInt32(dlSupplierSelect.SelectedValue);
+            if (supplierID == -1)
+            {
+                pnlGrid.Visible = false;
+            }
+            else
+            {
+                SqlDataSource1.SelectParameters[0].DefaultValue = supplierID.ToString();
+            }
         }
     }
 }

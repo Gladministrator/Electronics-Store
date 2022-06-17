@@ -118,3 +118,7 @@ body {
         padding: 3px 3px;
         border: 1px solid beige;
     }
+
+.dropdown-style {
+    margin: 10px 0;
+}

@@ -7,8 +7,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2 style="text-align: center; margin: 10px 0;">Product Management
     </h2>
-
-    <div class="flex-center">
+    <div class="flex-col-container dropdown-style">
+        <asp:Label runat="server" Font-Bold="true" Font-Size="Large" Text="Select a Supplier"></asp:Label>
+        <asp:DropDownList ID="dlSupplierSelect" runat="server" AutoPostBack="true"
+            DataSourceID="SqlDataSource4" DataTextField="company_name" DataValueField="id"
+            OnSelectedIndexChanged="dlSupplierSelect_SelectedIndexChanged" BackColor="#8fbc8f">
+        </asp:DropDownList>
+    </div>
+    <asp:SqlDataSource ID="SqlDataSource4" runat="server"
+        ConnectionString="<%$ ConnectionStrings:DBConnectionString %>"
+        ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
+        SelectCommand="SELECT [id], [company_name] FROM [supplier] ORDER BY [company_name]">
+    </asp:SqlDataSource>
+    <asp:Panel runat="server" class="flex-center" ID="pnlGrid">
         <asp:GridView ID="gvProductAdmin" runat="server" AutoGenerateColumns="False"
             CellPadding="3"
             AutoGenerateEditButton="True"
@@ -20,8 +31,8 @@
             FooterStyle-BackColor="#4e685f"
             FooterStyle-HorizontalAlign="Center"
             EditRowStyle-BackColor="#936f7b" EditRowStyle-HorizontalAlign="Center"
-            OnRowUpdating="TaskGridView_RowUpdatingSupplier" DataKeyNames="id" DataSourceID="SqlDataSource1"
-            OnRowDataBound="gvProductAdmin_RowDataBound">
+            OnRowUpdating="TaskGridView_RowUpdatingProduct" DataKeyNames="id" DataSourceID="SqlDataSource1"
+            OnRowDataBound="gvProductAdmin_RowDataBound" ShowHeaderWhenEmpty="true">
             <AlternatingRowStyle BackColor="#6F9375" HorizontalAlign="Center"></AlternatingRowStyle>
             <Columns>
                 <asp:TemplateField HeaderText="Product" SortExpression="product_name">
@@ -35,13 +46,13 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtSupplierName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator
-                            ID="rfEditSupplierName" runat="server"
+                            ID="rfCategoryName" runat="server"
                             ErrorMessage="Name is Required"
-                            ControlToValidate="txtSupplierName" Text="*"
+                            ControlToValidate="txtProductName" Text="*"
                             ForeColor="Red" ToolTip="A Name must be entered"
-                            ValidationGroup="SupplierInsert">
+                            ValidationGroup="ProductInsert">
                         </asp:RequiredFieldValidator>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -56,15 +67,15 @@
                         <asp:HiddenField runat="server" ID="HiddenFieldSupplier" Value='<%# Bind("supplier_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="dlInsertSupplier" runat="server" 
+                        <asp:DropDownList ID="dlInsertSupplier" runat="server"
                             DataSourceID="SqlDataSource2" DataTextField="company_name" DataValueField="id"
                             BackColor="#8fbc8f" Width="100%">
                             <asp:ListItem Value="-1">Select</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
-                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
-                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" 
-                            SelectCommand="SELECT [id], [company_name] FROM [supplier] ORDER BY [company_name]">
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>"
+                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
+                            SelectCommand="SELECT [id], [company_name] FROM [supplier] UNION ALL SELECT -1 AS id,'Select' AS description ORDER BY [id]">
                         </asp:SqlDataSource>
                     </FooterTemplate>
                     <ItemTemplate>
@@ -79,13 +90,13 @@
                             Value='<%# Bind("category_id") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="dlInsertCategory" runat="server" 
+                        <asp:DropDownList ID="dlInsertCategory" runat="server"
                             DataSourceID="SqlDataSource3" DataTextField="description" DataValueField="id"
                             BackColor="#8fbc8f" Width="100%">
                         </asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>" 
-                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>" 
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server"
+                            ConnectionString="<%$ ConnectionStrings:DBConnectionString %>"
+                            ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
                             SelectCommand="SELECT [id], [description] FROM [category] UNION SELECT -1 AS id,'Select' AS description ORDER BY [id]">
                         </asp:SqlDataSource>
                     </FooterTemplate>
@@ -114,13 +125,20 @@
                         </asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtSupplierPhone" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPriceFooter" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator
-                            ID="rftxtSupplierPhone" runat="server"
-                            ErrorMessage="Phone Number is Required"
-                            ControlToValidate="txtSupplierPhone" Text="*"
-                            ForeColor="Red" ToolTip="A Phone Number must be entered"
-                            ValidationGroup="SupplierInsert"></asp:RequiredFieldValidator>
+                            ID="rfTextBox4" runat="server"
+                            ErrorMessage="Price is Required"
+                            ControlToValidate="txtPriceFooter" Text="*"
+                            ForeColor="Red" ToolTip="A Price must be entered" ValidationGroup="ProductInsert">
+                        </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="rvPriceFooter"
+                            runat="server"
+                            ErrorMessage="Price must be in correct format"
+                            ControlToValidate="txtPriceFooter" Text="*"
+                            ForeColor="Red" ToolTip="Please enter a price in decimal format eg. 0.00"
+                            ValidationExpression="\d+(\.\d+){0,1}" ValidationGroup="ProductInsert">
+                        </asp:RegularExpressionValidator>
                     </FooterTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" Text='<%# Bind("retail_price","{0:c}") %>'></asp:Label>
@@ -131,7 +149,7 @@
                         <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("status") %>' />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:CheckBox ID="cbSupplierStatus" runat="server" Checked="true" />
+                        <asp:CheckBox ID="cbStatus" runat="server" Checked="true" />
                     </FooterTemplate>
                     <ItemTemplate>
                         <asp:CheckBox ID="CheckBox1" runat="server" Checked='<%# Bind("status") %>'
@@ -148,15 +166,15 @@
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkDeleteSupplier" runat="server" CausesValidation="False"
+                        <asp:LinkButton ID="lnkDeleteProduct" runat="server" CausesValidation="False"
                             CommandName="Delete" Text="Delete" CssClass="styled-btn-delete"
                             OnClientClick="return confirm('Are you sure you want to delete?');"></asp:LinkButton>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:Button ID="Button1" runat="server" Text="Insert Supplier"
+                        <asp:Button ID="Button1" runat="server" Text="Insert Product"
                             CssClass="styled-btn"
-                            OnClick="btnAddSupplier_Click"
-                            ValidationGroup="SupplierInsert" CausesValidation="true" />
+                            OnClick="btnAddProduct_Click"
+                            ValidationGroup="ProductInsert" CausesValidation="true" />
                     </FooterTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -197,15 +215,18 @@
                 <asp:Parameter Name="status" Type="Int32" />
                 <asp:Parameter Name="id" Type="Int32" />
             </UpdateParameters>
+            <SelectParameters>
+                <asp:Parameter Name="Supplier" Type="Int32" />
+            </SelectParameters>
         </asp:SqlDataSource>
         <div class="flex-col-container">
             <asp:CustomValidator ID="cvUpdateSupplier" runat="server"
                 ErrorMessage="Please select a Supplier"></asp:CustomValidator>
             <asp:CustomValidator ID="cvUpdateCategory" runat="server"
                 ErrorMessage="Please select a Category"></asp:CustomValidator>
-            <asp:ValidationSummary ID="vsSupplierSummary" HeaderText="There were errors with your submission:"
-                runat="server" ValidationGroup="SupplierInsert" />
+            <asp:CustomValidator ID="cvCustomText" runat="server"
+                ErrorMessage=""></asp:CustomValidator>
         </div>
-    </div>
+    </asp:Panel>
 
 </asp:Content>
