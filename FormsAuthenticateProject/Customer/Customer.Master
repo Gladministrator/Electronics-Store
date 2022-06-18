@@ -23,7 +23,8 @@
         &nbsp;&nbsp;
         <asp:LinkButton ID="lnkChangePassword" runat="server">Change Password</asp:LinkButton>
         &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkOrderProduct" runat="server">Order Products</asp:LinkButton>
+        <asp:LinkButton ID="lnkOrderProduct" runat="server" 
+            OnClick="lnkOrderProduct_Click">Order Products</asp:LinkButton>
         &nbsp;&nbsp;
         <asp:LinkButton ID="lnkViewHistory" runat="server">View History</asp:LinkButton>
         &nbsp;&nbsp;

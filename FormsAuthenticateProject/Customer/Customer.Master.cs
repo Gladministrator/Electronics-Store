@@ -18,5 +18,10 @@ namespace FormsAuthenticateProject.Customer
         {
             HelperMethods.SignOut();
         }
+
+        protected void lnkOrderProduct_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderProduct.aspx");
+        }
     }
 }

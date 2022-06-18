@@ -1,0 +1,132 @@
+﻿* {
+    font-family: Arial,sans-serif;
+}
+
+body {
+    background-color: #6F9387;
+}
+
+.styled-btn {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 0px;
+    width: 175px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .styled-btn:hover {
+        cursor: pointer;
+        background-color: #4CAF70;
+        color: black;
+    }
+
+.footer-text-input {
+    width: 100%;
+}
+
+.flex-center > div {
+    display: flex;
+    justify-content: center;
+}
+
+    .flex-center > div > table > tbody > tr > td:first-child > a {
+        background-color: #93876f;
+        border: 1px solid black;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        color: mediumaquamarine;
+    }
+
+.flex-col-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.styled-btn-delete {
+    background-color: #93876f;
+    border: 1px solid black;
+    padding: 5px 0px;
+    width: 175px;
+    color: darkred;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .styled-btn-delete:hover {
+        cursor: pointer;
+        background-color: #936f7b;
+        color: black;
+    }
+
+.col-row-gap-25 {
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.styled-btn-search {
+    background-color: #0080ff;
+    border: 1px solid black;
+    width: 85px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+}
+
+    .styled-btn-search:hover {
+        cursor: pointer;
+        background-color: #00b359;
+        color: black;
+    }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap:10px;
+}
+
+.text-input-registration {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 230px;
+}
+
+.customer-info-box {
+    display: flex;
+    column-gap: 15px;
+}
+
+    .customer-info-box > span {
+        background: #936f7b;
+        padding: 3px 3px;
+        border: 1px solid beige;
+    }
+
+.dropdown-style {
+    margin: 10px 0;
+}
+
+.dropdowns{
+    display:flex;
+    justify-content:center;
+    height:20px;
+}
