@@ -20,17 +20,23 @@
         </div>
         <asp:Panel ID="pnlOrder" runat="server" Visible="false">
             <div>
-                <asp:Label ID="lblProduct" runat="server"></asp:Label>
-                <asp:Label ID="lblPrice" runat="server"></asp:Label>
+                <div>
+                    <asp:Label ID="lblProduct" runat="server" Font-Bold="true" ForeColor="#42426f" Font-Size="Large"></asp:Label>
+                </div>
+                <asp:Label ID="lblPrice" runat="server" Font-Bold="true" ForeColor="#25333f"></asp:Label>
+                <asp:Label ID="lblTaxes" runat="server" Font-Bold="true" ForeColor="#25333f"></asp:Label>
+                <div>
+                <asp:Label ID="Label6" runat="server" Font-Bold="true" ForeColor="#25333f" Text="Total Price"></asp:Label>
+                <asp:Label ID="lblTotal" runat="server" Font-Bold="true" ForeColor="#25333f"></asp:Label>
+                    </div>
             </div>
-
             <div class="flex-container">
-                <h3 style="margin:14px 0 0 0;">Payment Information</h3>
+                <h3 style="margin: 14px 0 0 0;">Payment Information</h3>
                 <div class="flex-row">
                     <div class="flex-col-container">
                         <asp:Label ID="Label2" runat="server" Text="Card Holder Name"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:TextBox ID="txtCardName" runat="server" MaxLength="75" Width="200px"
+                            <asp:TextBox ID="txtCardName" runat="server" MaxLength="150" Width="200px"
                                 Height="20px"></asp:TextBox>
                             <asp:RequiredFieldValidator
                                 ID="rfCardName" runat="server"
@@ -77,6 +83,11 @@
                         <div class="text-input-registration">
                             <asp:TextBox ID="txtSecurity" runat="server" MaxLength="3"
                                 Height="20px"></asp:TextBox>
+                            <asp:RequiredFieldValidator
+                                ID="RequiredFieldValidator5" runat="server"
+                                ControlToValidate="txtSecurity" Text="*"
+                                ForeColor="Red" ToolTip="Security Code must be entered"
+                                ValidationGroup="OrderValidation"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator ID="reSecurityCode" runat="server"
                                 ControlToValidate="txtSecurity" Text="*" ForeColor="red"
                                 ValidationExpression="\d{3}"
@@ -88,7 +99,7 @@
                     <div class="flex-col-container">
                         <asp:Label ID="Label1" runat="server" CssClass="flex-container" Text="Expiry: Month"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:DropDownList ID="DropDownList5" runat="server"
+                            <asp:DropDownList ID="dlMonth" runat="server"
                                 BackColor="#8fbc8f">
                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                 <asp:ListItem>01</asp:ListItem>
@@ -105,14 +116,14 @@
                                 <asp:ListItem>12</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator1" Display="Dynamic"
-                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="DropDownList5"
+                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="dlMonth"
                                 Text="*" ForeColor="Red" ToolTip="Select a Month"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="flex-col-container">
                         <asp:Label ID="Label5" runat="server" CssClass="flex-container" Text="Expiry: Year"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:DropDownList ID="DropDownList4" runat="server"
+                            <asp:DropDownList ID="dlYear" runat="server"
                                 BackColor="#8fbc8f">
                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                 <asp:ListItem>2022</asp:ListItem>
@@ -129,15 +140,13 @@
                                 <asp:ListItem>2033</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator2" Display="Dynamic"
-                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="DropDownList4"
+                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="dlYear"
                                 Text="*" ForeColor="Red" ToolTip="Select a Year"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
 
                 <h3 style="text-align: center; margin: 14px 0 0 0;">Shipping Information</h3>
-
-
                 <div class="flex-row">
                     <div class="flex-col-container">
                         <asp:Label ID="Label13" runat="server" Text="Street Address"></asp:Label>
@@ -152,7 +161,7 @@
                     <div class="flex-col-container">
                         <asp:Label ID="Label14" runat="server" Text="Apartment/Unit Number"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:TextBox ID="txtLastName" runat="server" MaxLength="50" Width="200px"></asp:TextBox>
+                            <asp:TextBox ID="txtApt" runat="server" MaxLength="25" Width="200px"></asp:TextBox>
                         </div>
                     </div>
                 </div>
@@ -171,7 +180,7 @@
                     <div class="flex-col-container">
                         <asp:Label ID="Label9" runat="server" Text="Provice/Territory"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:DropDownList ID="DropDownList6" runat="server"
+                            <asp:DropDownList ID="dlRegion" runat="server"
                                 BackColor="#8fbc8f">
                                 <asp:ListItem Value="-1">Select</asp:ListItem>
                                 <asp:ListItem>Alberta</asp:ListItem>
@@ -189,23 +198,29 @@
                                 <asp:ListItem>Yukon</asp:ListItem>
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator InitialValue="-1" ID="RequiredFieldValidator3" Display="Dynamic"
-                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="DropDownList6"
+                                ValidationGroup="OrderValidation" runat="server" ControlToValidate="dlRegion"
                                 Text="*" ForeColor="Red" ToolTip="Select a Province/Territory"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                 </div>
-
                 <div class="flex-row">
                     <div class="flex-col-container">
                         <asp:Label ID="Label10" runat="server" Text="Postal Code"></asp:Label>
                         <div class="text-input-registration">
-                            <asp:TextBox ID="TextBox3" runat="server" MaxLength="10"></asp:TextBox>
+                            <asp:TextBox ID="txtPost" runat="server" MaxLength="10"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server"
-                                ControlToValidate="TextBox3" Text="*"
+                                ControlToValidate="txtPost" Text="*"
                                 ForeColor="Red" ToolTip="Postal Code is Required"
                                 Font-Size="Large" ValidationGroup="OrderValidation"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <asp:Button ID="btnSubmit" ValidationGroup="OrderValidation"
+                        CausesValidation="true" runat="server" Text="Submit" CssClass="styled-btn"
+                        OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnCancel" runat="server" Text="Cancel" CssClass="styled-btn"
+                        OnClick="btnCancel_Click" />
                 </div>
             </div>
         </asp:Panel>

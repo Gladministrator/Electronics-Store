@@ -20,6 +20,7 @@ namespace FormsAuthenticateProject.Customer
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pnlOrder.Visible = false;
             var supplierID = Convert.ToInt32(DropDownList1.SelectedValue);
             DropDownList3.Items.Clear();
 
@@ -37,6 +38,7 @@ namespace FormsAuthenticateProject.Customer
 
         protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pnlOrder.Visible = false;
             var categoryID = Convert.ToInt32(DropDownList2.SelectedValue);
 
             if (categoryID == -1)
@@ -61,12 +63,64 @@ namespace FormsAuthenticateProject.Customer
             if (productID == -1)
             {
                 pnlOrder.Visible = false;
+                return;
             }
-            else if (productID > 0)
-            {
-                pnlOrder.Visible = true;
 
+
+            DatabaseObject db = new DatabaseObject("Get_Product_Price");
+            var result = db.Get_Price(DropDownList3.SelectedValue);
+
+            if (result > 0M)
+            {
+                var taxes = result * 0.13M;
+                lblProduct.Text = $"{DropDownList3.SelectedItem.Text}";
+                lblPrice.Text = $"Price: ${result.ToString("0.00")}";
+                lblTaxes.Text = $"Taxes: ${taxes.ToString("0.00")}";
+                lblTotal.Text = $"{(result + taxes).ToString("0.00")}";
+                pnlOrder.Visible = true;
             }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            var cardHolder = txtCardName.Text.Trim();
+            var cardType = dlCardType.SelectedValue;
+            var cardNumber = txtCardNumber.Text.Trim();
+            var code = txtSecurity.Text.Trim();
+            var expiryMonth = dlMonth.SelectedValue;
+            var expiryYear = dlYear.SelectedValue;
+
+            var address = txtAddress.Text.Trim();
+            var apt = txtApt.Text.Trim();
+            var city = txtCity.Text.Trim();
+            var region = dlRegion.SelectedValue;
+            var addressCode = txtPost.Text.Trim();
+
+            var total = lblTotal.Text;
+
+            var account = Session["ID"].ToString();
+            var product = DropDownList3.SelectedValue;
+
+            DatabaseObject db = new DatabaseObject("Add_Invoice");
+            var result = db.InsertWithParams("@Account", account, "@ProductID", product, "@Total",
+                total, "@CardHolder", cardHolder, "@CardType", cardType,
+                "@CardNumber", cardNumber, "@CardSecurityCode", code, "@Year", expiryYear,
+                "@Month", expiryMonth, "@Address", address, "@Unit", apt, "@City", city, "@Region", region,
+                "@Postal", addressCode);
+
+            if (result > 0)
+            {
+                return;
+            }
+            else
+            {
+                Response.Redirect($"~/Account/Login.aspx?LoginText={db.error.Message}");
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderProduct.aspx");
         }
     }
 }

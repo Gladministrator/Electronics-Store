@@ -69,6 +69,33 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label lblPrice;
 
         /// <summary>
+        /// lblTaxes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTaxes;
+
+        /// <summary>
+        /// Label6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label6;
+
+        /// <summary>
+        /// lblTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -177,6 +204,15 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.TextBox txtSecurity;
 
         /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+
+        /// <summary>
         /// reSecurityCode control.
         /// </summary>
         /// <remarks>
@@ -195,13 +231,13 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// DropDownList5 control.
+        /// dlMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList dlMonth;
 
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -222,13 +258,13 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// DropDownList4 control.
+        /// dlYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.DropDownList dlYear;
 
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -276,13 +312,13 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label Label14;
 
         /// <summary>
-        /// txtLastName control.
+        /// txtApt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLastName;
+        protected global::System.Web.UI.WebControls.TextBox txtApt;
 
         /// <summary>
         /// Label8 control.
@@ -321,13 +357,13 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// DropDownList6 control.
+        /// dlRegion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList6;
+        protected global::System.Web.UI.WebControls.DropDownList dlRegion;
 
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -348,13 +384,13 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtPost control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtPost;
 
         /// <summary>
         /// RequiredFieldValidator6 control.
@@ -364,5 +400,23 @@ namespace FormsAuthenticateProject.Customer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
+
+        /// <summary>
+        /// btnCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancel;
     }
 }

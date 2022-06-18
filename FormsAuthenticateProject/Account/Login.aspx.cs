@@ -25,6 +25,7 @@ namespace FormsAuthenticateProject.Account
             {
                 //Create Session with data that other pages can access when signed in
                 string role;
+                Session["ID"] = result.Tables[0].Rows[0]["id"].ToString();
                 Session["Email"] = result.Tables[0].Rows[0]["email_address"].ToString();
                 Session["Role"] = role = result.Tables[0].Rows[0]["description"].ToString();
 

@@ -289,5 +289,30 @@ namespace FormsAuthenticateProject
                 connection.Close();
             }
         }
+        public decimal Get_Price(string id)
+        {
+            adapter.SelectCommand = cmd;
+            var parsed = int.TryParse(id, out var numberID);
+            var identity = parsed ? numberID : 0;
+            cmd.Parameters.AddWithValue("@Identity", identity);
+
+
+            try
+            {
+                cmd.Prepare();
+                connection.Open();
+                var result = (decimal)cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return 0M;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
