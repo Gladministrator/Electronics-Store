@@ -24,15 +24,6 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.DropDownList dlSupplierSelect;
 
         /// <summary>
-        /// SqlDataSource4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
-
-        /// <summary>
         /// pnlGrid control.
         /// </summary>
         /// <remarks>

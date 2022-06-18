@@ -12,10 +12,13 @@ namespace FormsAuthenticateProject.Administration
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var ds = HelperMethods.LoadTable("Load_Suppliers");
+                HelperMethods.LoadDropDown(dlSupplierSelect, ds, "id", "company_name");
+            }
 
-            //var categoryDropDown = (DropDownList)gvProductAdmin.FooterRow.FindControl("dlInsertCategory");
-            //DataSet data = HelperMethods.LoadTable("Load_Category_Table");
-            //HelperMethods.LoadDropDown(categoryDropDown, data, "id", "description");
+
         }
 
         protected void TaskGridView_RowUpdatingProduct(object sender, GridViewUpdateEventArgs e)
@@ -135,6 +138,7 @@ namespace FormsAuthenticateProject.Administration
             }
             else
             {
+                pnlGrid.Visible = true;
                 SqlDataSource1.SelectParameters[0].DefaultValue = supplierID.ToString();
             }
         }

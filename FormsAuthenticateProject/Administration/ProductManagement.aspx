@@ -10,16 +10,10 @@
     <div class="flex-col-container dropdown-style">
         <asp:Label runat="server" Font-Bold="true" Font-Size="Large" Text="Select a Supplier"></asp:Label>
         <asp:DropDownList ID="dlSupplierSelect" runat="server" AutoPostBack="true"
-            DataSourceID="SqlDataSource4" DataTextField="company_name" DataValueField="id"
             OnSelectedIndexChanged="dlSupplierSelect_SelectedIndexChanged" BackColor="#8fbc8f">
         </asp:DropDownList>
     </div>
-    <asp:SqlDataSource ID="SqlDataSource4" runat="server"
-        ConnectionString="<%$ ConnectionStrings:DBConnectionString %>"
-        ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
-        SelectCommand="SELECT [id], [company_name] FROM [supplier] ORDER BY [company_name]">
-    </asp:SqlDataSource>
-    <asp:Panel runat="server" class="flex-center" ID="pnlGrid">
+    <asp:Panel runat="server" class="flex-center" ID="pnlGrid" Visible="false">
         <asp:GridView ID="gvProductAdmin" runat="server" AutoGenerateColumns="False"
             CellPadding="3"
             AutoGenerateEditButton="True"

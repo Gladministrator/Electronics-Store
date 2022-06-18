@@ -78,6 +78,15 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.Button btnIdSearch;
 
         /// <summary>
+        /// btnCreate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreate;
+
+        /// <summary>
         /// gvCustomersMaintenance control.
         /// </summary>
         /// <remarks>
@@ -258,6 +267,15 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.TextBox txtPasswordMaintenance;
 
         /// <summary>
+        /// cvError1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvError1;
+
+        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -285,6 +303,15 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfSecretQuestionMaintenance;
 
         /// <summary>
+        /// cvError2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvError2;
+
+        /// <summary>
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -303,6 +330,15 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.TextBox txtSecretAnswerMaintenance;
 
         /// <summary>
+        /// cvError4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvError4;
+
+        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>
@@ -319,6 +355,15 @@ namespace FormsAuthenticateProject.Administration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dlRoleMaintenance;
+
+        /// <summary>
+        /// cvError3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvError3;
 
         /// <summary>
         /// Label9 control.
@@ -364,6 +409,15 @@ namespace FormsAuthenticateProject.Administration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdateProfile;
+
+        /// <summary>
+        /// btnCreateUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCreateUser;
 
         /// <summary>
         /// btnCancel control.

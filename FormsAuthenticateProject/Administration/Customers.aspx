@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="../Styles/AdministrationStyle.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2 style="text-align: center; margin: 10px 0px;">Customer Maintenance</h2>
+    <h2 style="text-align: center; margin: 10px 0px;">Customer/User Maintenance</h2>
     <asp:Panel runat="server" ID="pnlSearch" class="flex-col-container col-row-gap-25">
-        <asp:Label ID="Label1" runat="server" Font-Bold="true" Font-Size="Large" Text="Search Customers"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="true" Font-Size="Large" Text="Search Accounts"></asp:Label>
         <asp:TextBox ID="txtInputSearch" runat="server"></asp:TextBox>
         <asp:CustomValidator ID="cvCustomerNotFound" runat="server"
             ErrorMessage=""></asp:CustomValidator>
@@ -17,7 +17,11 @@
             <asp:Button ID="btnLastSearch" runat="server" CssClass="styled-btn-search"
                 Text="Search by Last Name" OnClick="btnLastSearch_Click" />
             <asp:Button ID="btnIdSearch" runat="server" CssClass="styled-btn-search"
-                Text="Search by Customer ID" OnClick="Button1_Click" />
+                Text="Search by Account ID" OnClick="Button1_Click" />
+        </div>
+        <div>
+            <asp:Button ID="btnCreate" runat="server" CssClass="styled-btn"
+                Text="Create New Account" OnClick="btnCreate_Click" />
         </div>
         <asp:GridView ID="gvCustomersMaintenance" runat="server"
             AutoGenerateSelectButton="True" CellPadding="4" ForeColor="#333333" AutoGenerateColumns="false"
@@ -116,8 +120,14 @@
                 <asp:TextBox ID="txtPasswordMaintenance" runat="server" MaxLength="12" TextMode="Password"
                     Width="200px"
                     Height="20px"></asp:TextBox>
+                <asp:CustomValidator runat="server"
+                    ToolTip="Password is Required."
+                    Text="*"
+                    ForeColor="Red"
+                    ID="cvError1"></asp:CustomValidator>
             </div>
         </div>
+
         <div class="flex-row">
             <asp:Label ID="Label7" runat="server" CssClass="flex-container" Text="Account Recovery Question"></asp:Label>
             <div class="text-input-registration">
@@ -130,6 +140,10 @@
                     ErrorMessage="Secret Question is Required"
                     Font-Size="Large" ForeColor="Red"
                     Text="*" ToolTip="Secret Question is Required"></asp:RequiredFieldValidator>
+                <asp:CustomValidator runat="server" ToolTip="Security Question must be selected."
+                    Text="*"
+                    ForeColor="Red"
+                    ID="cvError2"></asp:CustomValidator>
             </div>
         </div>
         <div class="flex-row">
@@ -137,6 +151,11 @@
             <div class="text-input-registration">
                 <asp:TextBox ID="txtSecretAnswerMaintenance" runat="server" Width="200px" Height="20px">
                 </asp:TextBox>
+                <asp:CustomValidator runat="server" ToolTip="Security Answer is Required."
+                    Font-Size="Large" ForeColor="Red"
+                    Text="*"
+                    ID="cvError4"></asp:CustomValidator>
+
             </div>
         </div>
         <div class="flex-row">
@@ -145,6 +164,11 @@
                 <asp:DropDownList ID="dlRoleMaintenance" runat="server" Width="200px" Height="25px"
                     BackColor="#8fbc8f">
                 </asp:DropDownList>
+                <asp:CustomValidator runat="server" ToolTip="Role must be selected."
+                    Font-Size="Large" ForeColor="Red"
+                    Text="*"
+                    ID="cvError3"></asp:CustomValidator>
+
             </div>
         </div>
         <div class="flex-row">
@@ -166,9 +190,12 @@
             <asp:Label ID="lblErrorMsg" runat="server" Text="Label" Visible="False"
                 Font-Bold="True" ForeColor="#CC0000"></asp:Label>
             <div class="flex-container">
-                <asp:Button ID="btnUpdateProfile" runat="server" CssClass="styled-btn" Text="Update Profile"
+                <asp:Button ID="btnUpdateProfile" runat="server" CssClass="styled-btn" Text="Update Account"
                     ValidationGroup="ProfileMaintenance" CausesValidation="true"
                     OnClick="btnUpdateProfile_Click" />
+                <asp:Button ID="btnCreateUser" runat="server" CssClass="styled-btn" Text="Create Account"
+                    ValidationGroup="ProfileMaintenance" CausesValidation="true"
+                    OnClick="btnCreateUser_Click" Visible="false" />
                 <asp:Button ID="btnCancel" runat="server" CssClass="styled-btn" Text="Cancel"
                     OnClick="btnCancel_Click" />
             </div>

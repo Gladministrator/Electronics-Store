@@ -60,6 +60,7 @@ namespace FormsAuthenticateProject.Administration
 
         private void LoadUser(DataSet ds)
         {
+            btnUpdateProfile.Text = "Update Account";
             DatabaseObject connection = new DatabaseObject("Get_Security_Questions");
             DatabaseObject connection2 = new DatabaseObject("Load_Role_Table");
             DataSet tableInfoData = connection.GetTableRecords();
@@ -106,6 +107,7 @@ namespace FormsAuthenticateProject.Administration
 
         protected void btnUpdateProfile_Click(object sender, EventArgs e)
         {
+            lblErrorMsg.Text = "";
             var emailAddress = txtEmailAddressMaintenance.Text.Trim();
             var customer = Convert.ToInt32(lblCustomerID.Text);
             var firstName = txtFirstNameMaintenance.Text.Trim();
@@ -116,6 +118,17 @@ namespace FormsAuthenticateProject.Administration
             var status = dlStatus.SelectedValue == "Active" ? true : false;
             var password = txtPasswordMaintenance.Text.Trim();
             var securityAnswer = txtSecretAnswerMaintenance.Text.Trim();
+
+            if (securityQuestion == -1)
+            {
+                cvError2.IsValid = false;
+                return;
+            }
+            else if (role == -1)
+            {
+                cvError3.IsValid = false;
+                return;
+            }
 
             // Check if email changed, if it did password/security question must change due to hash calculation which uses email as the salt.
             if (emailAddress != lblCustomerEmail.Text && (password.Length == 0 || securityAnswer.Length == 0))
@@ -138,6 +151,82 @@ namespace FormsAuthenticateProject.Administration
                 LoadUser(data2);
 
                 lblErrorMsg.Text = "Updated Customer Successfully.";
+            }
+            else if (result == -1)
+            {
+                lblErrorMsg.Text = connection.error.Message;
+            }
+            lblErrorMsg.Visible = true;
+        }
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            pnlSearch.Visible = false;
+            pnlAccount.Visible = true;
+            btnCreateUser.Visible = true;
+            btnUpdateProfile.Visible = false;
+
+            DataSet tableInfoData = HelperMethods.LoadTable("Get_Security_Questions");
+            DataSet tableInfoData2 = HelperMethods.LoadTable("Load_Role_Table");
+
+            if (tableInfoData != null && tableInfoData2 != null)
+            {
+                // Load Dropdowns
+                HelperMethods.LoadDropDown(dlSecretQuestionMaintenance, tableInfoData, "id", "security_question");
+                HelperMethods.LoadDropDown(dlRoleMaintenance, tableInfoData2, "id", "description");
+            }
+            else Response.Redirect("~/Account/Login.aspx?LoginText=An Error Occured, Please Log In Again");
+        }
+
+        protected void btnCreateUser_Click(object sender, EventArgs e)
+        {
+            var emailAddress = txtEmailAddressMaintenance.Text.Trim();
+            var firstName = txtFirstNameMaintenance.Text.Trim();
+            var lastName = txtLastNameMaintenance.Text.Trim();
+            var phoneNumber = txtPhoneNumberMaintenance.Text.Trim();
+            var securityQuestion = Convert.ToInt32(dlSecretQuestionMaintenance.SelectedValue.Trim());
+            var role = Convert.ToInt32(dlRoleMaintenance.SelectedValue.Trim());
+            var status = dlStatus.SelectedValue == "Active" ? 1 : 0;
+            var password = txtPasswordMaintenance.Text.Trim();
+            var securityAnswer = txtSecretAnswerMaintenance.Text.Trim();
+
+            if (password.Length == 0 || securityQuestion == -1 || role == -1 || securityAnswer.Length == 0)
+            {
+                if (password.Length == 0)
+                {
+                    cvError1.IsValid = false;
+                }
+
+                if (securityQuestion == -1)
+                {
+                    cvError2.IsValid = false;
+                }
+                if (role == -1)
+                {
+                    cvError3.IsValid = false;
+                }
+                if (securityAnswer.Length == 0)
+                {
+                    cvError4.IsValid = false;
+                }
+                return;
+            }
+
+            DatabaseObject connection = new DatabaseObject("Insert_User");
+            var result = connection.AddUser(emailAddress, lastName, firstName, phoneNumber, password,
+               securityQuestion, securityAnswer, role, status);
+            if (result == 0)
+            {
+                lblErrorMsg.Text = "A User with that Email already exists, please use a different email.";
+            }
+            else if (result > 0)
+            {
+                DatabaseObject connection2 = new DatabaseObject("Load_Customer");
+                DataSet data2 = connection2.LoadTableWithParams("@ID", result.ToString());
+                LoadUser(data2);
+                lblErrorMsg.Text = "Created Account Successfully.";
+                btnCreateUser.Visible = false;
+                btnUpdateProfile.Visible = true;
             }
             else if (result == -1)
             {
