@@ -57,11 +57,11 @@ namespace FormsAuthenticateProject
                 return "~/Account/Login.aspx";
             }
         }
-        public static void SignOut()
+        public static void SignOut(string msg = "You have now signed out")
         {
             HttpContext.Current.Session.Clear();
             HttpContext.Current.Session.Abandon();
-            HttpContext.Current.Response.Redirect("~/Account/Login.aspx?LoginText=You have now signed out");
+            HttpContext.Current.Response.Redirect($"~/Account/Login.aspx?LoginText={msg}");
         }
         public static DataSet LoadTable(string storedProcedure)
         {

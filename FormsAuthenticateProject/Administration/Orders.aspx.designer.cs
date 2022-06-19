@@ -11,124 +11,124 @@ namespace FormsAuthenticateProject.Administration
 {
 
 
-    public partial class Admin
+    public partial class Orders
     {
 
         /// <summary>
-        /// head control.
+        /// txtSearchInvoice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtSearchInvoice;
 
         /// <summary>
-        /// form1 control.
+        /// rfFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfFirstName;
 
         /// <summary>
-        /// lblName control.
+        /// RegularExpressionValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
-        /// lnkSignOut control.
+        /// btnSearchOrderNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSignOut;
+        protected global::System.Web.UI.WebControls.Button btnSearchOrderNumber;
 
         /// <summary>
-        /// lnkHome control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkHome;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
 
         /// <summary>
-        /// lnkProducts control.
+        /// cvNotFound control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkProducts;
+        protected global::System.Web.UI.WebControls.CustomValidator cvNotFound;
 
         /// <summary>
-        /// lnkManageRoles control.
+        /// vsSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkManageRoles;
+        protected global::System.Web.UI.WebControls.ValidationSummary vsSearch;
 
         /// <summary>
-        /// lnkManageCategories control.
+        /// pnlOrderDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkManageCategories;
+        protected global::System.Web.UI.WebControls.Panel pnlOrderDetails;
 
         /// <summary>
-        /// lnkCustomerMaintenance control.
+        /// gvTrackedOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCustomerMaintenance;
+        protected global::System.Web.UI.WebControls.GridView gvTrackedOrder;
 
         /// <summary>
-        /// lnkManageSuppliers control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkManageSuppliers;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// lnkReporting control.
+        /// lblWarning1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkReporting;
+        protected global::System.Web.UI.WebControls.Label lblWarning1;
 
         /// <summary>
-        /// LinkButton1 control.
+        /// lblWarning2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.WebControls.Label lblWarning2;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// cvEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.CustomValidator cvEdit;
     }
 }

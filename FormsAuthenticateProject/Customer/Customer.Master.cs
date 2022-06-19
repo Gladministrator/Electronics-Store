@@ -11,7 +11,12 @@ namespace FormsAuthenticateProject.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var role = Session["Role"]?.ToString();
+            if (role != "Customer")
+            {
+                var redirectLink = HelperMethods.RoleRedirect(role);
+                Response.Redirect(redirectLink);
+            }
         }
 
         protected void lnkSignOut_Click(object sender, EventArgs e)
@@ -32,6 +37,11 @@ namespace FormsAuthenticateProject.Customer
         protected void lnkTrackOrders_Click(object sender, EventArgs e)
         {
             Response.Redirect("TrackOrders.aspx");
+        }
+
+        protected void lnkChangePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
         }
     }
 }

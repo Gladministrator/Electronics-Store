@@ -110,6 +110,20 @@ body {
     width: 230px;
 }
 
+.text-label {
+    width: 375px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.text-input {
+    display: flex;
+    align-items: center;
+    width: 175px;
+}
+
 .customer-info-box {
     display: flex;
     column-gap: 15px;

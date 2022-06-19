@@ -48,5 +48,10 @@ namespace FormsAuthenticateProject.Administration
         {
             Response.Redirect("ProductManagement.aspx");
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Orders.aspx");
+        }
     }
 }
