@@ -314,5 +314,27 @@ namespace FormsAuthenticateProject
                 connection.Close();
             }
         }
+        public int Update_Shipping(int invoice)
+        {
+            adapter.InsertCommand = cmd;
+            cmd.Parameters.AddWithValue("@Invoice", invoice);
+
+            try
+            {
+                cmd.Prepare();
+                connection.Open();
+                var result = (Int32)cmd.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                error = ex;
+                return -1;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

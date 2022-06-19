@@ -30,7 +30,10 @@ namespace FormsAuthenticateProject.Account
                 Session["Role"] = role = result.Tables[0].Rows[0]["description"].ToString();
 
                 if (role == "Administration") Response.Redirect("~/Administration/default.aspx");
-                else if (role == "Customer" || role == "Shipping") Response.Redirect("~/Customer/default.aspx");
+                else if (role == "Customer") Response.Redirect("~/Customer/default.aspx");
+                else if (role == "Shipping") Response.Redirect("~/Shipping/default.aspx");
+                else Response.Redirect("~/Account/Login.aspx?LoginText=Role Not Supported");
+
             }
             else if (result == null)
             {

@@ -28,7 +28,7 @@
             RowStyle-HorizontalAlign="Center" OnSelectedIndexChanged="CustomersGridView_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="Customer ID" />
+                <asp:BoundField DataField="id" HeaderText="Account ID" />
                 <asp:BoundField DataField="first_name" HeaderText="First Name" />
                 <asp:BoundField DataField="last_name" HeaderText="Last Name" />
                 <asp:BoundField DataField="status" HeaderText="Status" />

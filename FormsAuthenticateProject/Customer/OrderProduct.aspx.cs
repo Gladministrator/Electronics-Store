@@ -110,7 +110,7 @@ namespace FormsAuthenticateProject.Customer
 
             if (result > 0)
             {
-                return;
+                Response.Redirect("ViewHistory.aspx");
             }
             else
             {

@@ -17,6 +17,10 @@ namespace FormsAuthenticateProject.Administration
                 var redirectLink = HelperMethods.RoleRedirect(role);
                 Response.Redirect(redirectLink);
             }
+            else
+            {
+                lblName.Text = Session["Email"].ToString();
+            }
         }
 
         protected void lnkSignOut_Click(object sender, EventArgs e)
@@ -52,6 +56,11 @@ namespace FormsAuthenticateProject.Administration
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Orders.aspx");
+        }
+
+        protected void lnkReporting_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Reporting.aspx");
         }
     }
 }

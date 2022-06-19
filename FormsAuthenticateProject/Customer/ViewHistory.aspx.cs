@@ -23,7 +23,6 @@ namespace FormsAuthenticateProject.Customer
                     gvOrderHistory.DataBind();
                 }
             }
-
         }
     }
 }

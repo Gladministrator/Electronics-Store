@@ -34,7 +34,7 @@
         <asp:LinkButton ID="lnkManageSuppliers" runat="server" 
                 OnClick="lnkManageSuppliers_Click">Manage Suppliers</asp:LinkButton>
             &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkReporting" runat="server">Reporting</asp:LinkButton>
+        <asp:LinkButton ID="lnkReporting" runat="server" OnClick="lnkReporting_Click">Reporting</asp:LinkButton>
                         &nbsp;&nbsp;
         <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Manage Orders</asp:LinkButton>
         </div>
