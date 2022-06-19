@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,17 @@ namespace FormsAuthenticateProject.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                var account = Session["ID"].ToString();
+                DatabaseObject connection = new DatabaseObject("Load_Invoices");
+                DataSet data = connection.LoadTableWithParams("@Query", account);
+                if (data != null)
+                {
+                    gvOrderHistory.DataSource = data;
+                    gvOrderHistory.DataBind();
+                }
+            }
 
         }
     }

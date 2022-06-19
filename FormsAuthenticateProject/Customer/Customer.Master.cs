@@ -23,5 +23,15 @@ namespace FormsAuthenticateProject.Customer
         {
             Response.Redirect("OrderProduct.aspx");
         }
+
+        protected void lnkViewHistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ViewHistory.aspx");
+        }
+
+        protected void lnkTrackOrders_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TrackOrders.aspx");
+        }
     }
 }

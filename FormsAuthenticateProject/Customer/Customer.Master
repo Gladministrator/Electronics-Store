@@ -26,9 +26,11 @@
         <asp:LinkButton ID="lnkOrderProduct" runat="server" 
             OnClick="lnkOrderProduct_Click">Order Products</asp:LinkButton>
         &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkViewHistory" runat="server">View History</asp:LinkButton>
+        <asp:LinkButton ID="lnkViewHistory" runat="server" 
+            OnClick="lnkViewHistory_Click">View History</asp:LinkButton>
         &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkTrackOrders" runat="server">Track Orders</asp:LinkButton>
+        <asp:LinkButton ID="lnkTrackOrders" runat="server" 
+            OnClick="lnkTrackOrders_Click">Track Orders</asp:LinkButton>
     </div>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
