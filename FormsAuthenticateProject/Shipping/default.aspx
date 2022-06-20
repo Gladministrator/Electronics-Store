@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="text-align: center">
-        <h2 style="text-align: center">Home Page for Shipping User
+        <h2 style="text-align: center">Home Page for Shipping Users
         </h2>
         <p style="text-align: center">
             Shipping Users can track orders and send out shipments.

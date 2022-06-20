@@ -41,5 +41,10 @@ namespace FormsAuthenticateProject.Shipping
         {
             Response.Redirect("default.aspx");
         }
+
+        protected void lnkChangePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+        }
     }
 }

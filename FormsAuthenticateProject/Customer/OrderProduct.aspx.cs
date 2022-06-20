@@ -90,6 +90,17 @@ namespace FormsAuthenticateProject.Customer
             var expiryMonth = dlMonth.SelectedValue;
             var expiryYear = dlYear.SelectedValue;
 
+            // Check if card expired
+            if (int.TryParse(expiryMonth, out int month) && int.TryParse(expiryYear, out int year))
+            {
+                if (year < DateTime.Now.Year || (year == DateTime.Now.Year && month < DateTime.Now.Month))
+                {
+                    cvErrorOrder.ErrorMessage = "Card Expired";
+                    cvErrorOrder.IsValid = false;
+                    return;
+                }
+            };
+
             var address = txtAddress.Text.Trim();
             var apt = txtApt.Text.Trim();
             var city = txtCity.Text.Trim();

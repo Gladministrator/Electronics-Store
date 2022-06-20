@@ -11,14 +11,17 @@
 <body>
     <form id="form1" runat="server">
         <div style="text-align: center;">
+            <div class="shipping-image">Shipping</div>
             <img src="../Images/Customer.png" alt="shipping" />
-            <div style="text-align: right;margin:5px;">
+            <div style="text-align: right; margin: 5px;">
                 <asp:Label ID="lblName" runat="server" Text="Label" CssClass="email-label"></asp:Label>
                 <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click" CssClass="styled-btn-delete">Sign Out</asp:LinkButton>
             </div>
             <div class="nav-links-container">
-                <asp:LinkButton ID="lnkHome" runat="server" CssClass="styled-btn-master" 
+                <asp:LinkButton ID="lnkHome" runat="server" CssClass="styled-btn-master"
                     OnClick="lnkHome_Click">Home</asp:LinkButton>
+                <asp:LinkButton ID="lnkChangePassword" runat="server" CssClass="styled-btn-master"
+                    OnClick="lnkChangePassword_Click">Change Password</asp:LinkButton>
                 <asp:LinkButton ID="lnkShipping" runat="server"
                     OnClick="lnkShipping_Click" CssClass="styled-btn-master">Create Shipments</asp:LinkButton>
                 <asp:LinkButton ID="LinkButton1" runat="server"

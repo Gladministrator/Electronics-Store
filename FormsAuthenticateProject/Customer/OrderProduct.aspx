@@ -144,9 +144,9 @@
                                 Text="*" ForeColor="Red" ToolTip="Select a Year"></asp:RequiredFieldValidator>
                         </div>
                     </div>
+                    <asp:CustomValidator ID="cvErrorOrder" ErrorMessage="" runat="server" />
                 </div>
-
-                <h3 style="text-align: center; margin: 14px 0 0 0;">Shipping Information</h3>
+                <h3 style="text-align: center; margin: 10px 0 0 0;">Shipping Information</h3>
                 <div class="flex-row">
                     <div class="flex-col-container">
                         <asp:Label ID="Label13" runat="server" Text="Street Address"></asp:Label>

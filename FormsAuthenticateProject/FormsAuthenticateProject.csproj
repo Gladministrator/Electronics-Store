@@ -78,6 +78,7 @@
     <Content Include="Images\Administration.png" />
     <Content Include="Images\Customer.png" />
     <Content Include="Images\public.png" />
+    <Content Include="Shipping\ChangePassword.aspx" />
     <Content Include="Shipping\default.aspx" />
     <Content Include="Shipping\ShippedOrders.aspx" />
     <Content Include="Shipping\Shipping.aspx" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Public.Master.designer.cs">
       <DependentUpon>Public.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Shipping\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shipping\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shipping\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>

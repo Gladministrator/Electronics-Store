@@ -276,6 +276,15 @@ namespace FormsAuthenticateProject.Customer
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
+        /// cvErrorOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator cvErrorOrder;
+
+        /// <summary>
         /// Label13 control.
         /// </summary>
         /// <remarks>

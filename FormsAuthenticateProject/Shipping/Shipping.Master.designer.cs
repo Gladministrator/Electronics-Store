@@ -60,6 +60,15 @@ namespace FormsAuthenticateProject.Shipping
         protected global::System.Web.UI.WebControls.LinkButton lnkHome;
 
         /// <summary>
+        /// lnkChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkChangePassword;
+
+        /// <summary>
         /// lnkShipping control.
         /// </summary>
         /// <remarks>

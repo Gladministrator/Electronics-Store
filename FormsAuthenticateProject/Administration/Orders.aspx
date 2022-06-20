@@ -73,7 +73,7 @@
                 InsertCommand="INSERT INTO [invoice] ([account_id], [product_id], [invoice_date], [invoice_total], [card_holder], [delivery_address], [shipping_status], [order_status]) VALUES (@account_id, @product_id, @invoice_date, @invoice_total, @card_holder, @delivery_address, @shipping_status, @order_status)"
                 ProviderName="<%$ ConnectionStrings:DBConnectionString.ProviderName %>"
                 SelectCommand="SELECT [id], [account_id], [product_id], [invoice_date], [invoice_total], [card_holder], [delivery_address], [shipping_status], [order_status] FROM [invoice] WHERE (([id] = @id) AND ([order_status] = @order_status))"
-                UpdateCommand="UPDATE [invoice] SET [product_id] = @product_id, [invoice_total] = @invoice_total, [delivery_address] = @delivery_address, [shipping_status] = @shipping_status, [order_status] = @order_status WHERE [id] = @id">
+                UpdateCommand="UPDATE [invoice] SET [product_id] = @product_id, [invoice_total] = @invoice_total, [delivery_address] = @delivery_address, [shipping_status] = 0, [order_status] = @order_status WHERE [id] = @id">
                 <DeleteParameters>
                     <asp:Parameter Name="id" Type="Int32" />
                 </DeleteParameters>

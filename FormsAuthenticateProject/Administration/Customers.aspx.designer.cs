@@ -123,6 +123,15 @@ namespace FormsAuthenticateProject.Administration
         protected global::System.Web.UI.WebControls.Label lblCustomerEmail;
 
         /// <summary>
+        /// lblErrorMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -391,15 +400,6 @@ namespace FormsAuthenticateProject.Administration
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary vsProfile;
-
-        /// <summary>
-        /// lblErrorMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorMsg;
 
         /// <summary>
         /// btnUpdateProfile control.

@@ -79,7 +79,8 @@ namespace FormsAuthenticateProject.Administration
                 DataTable productTable = dataset.Tables[0];
                 var dataList = productTable.AsEnumerable()
                     .Where(row => row.Field<string>("product_name") == product
-                    && row.Field<int>("supplier_id") == Convert.ToInt32(supplier))
+                    && row.Field<int>("supplier_id") == Convert.ToInt32(supplier) &&
+                    row.Field<int>("category_id") == Convert.ToInt32(category))
                     .Select(row => row.Field<int>("id"))
                     .ToList();
 

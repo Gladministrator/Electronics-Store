@@ -31,6 +31,7 @@
                 <asp:BoundField DataField="id" HeaderText="Account ID" />
                 <asp:BoundField DataField="first_name" HeaderText="First Name" />
                 <asp:BoundField DataField="last_name" HeaderText="Last Name" />
+                <asp:BoundField DataField="role" HeaderText="Role" />
                 <asp:BoundField DataField="status" HeaderText="Status" />
             </Columns>
             <EditRowStyle BackColor="#7C6F57" />
@@ -53,6 +54,8 @@
             <span>Email:
                 <asp:Label ID="lblCustomerEmail" runat="server" Text=""></asp:Label></span>
         </div>
+        <asp:Label ID="lblErrorMsg" runat="server" Text="Label" Visible="False"
+            Font-Bold="True" ForeColor="#CC0000"></asp:Label>
         <div class="flex-row">
             <asp:Label ID="Label2" runat="server" Text="First Name"></asp:Label>
             <div class="text-input-registration">
@@ -187,8 +190,6 @@
             Font-Names="verdana"
             Font-Size="12" />
         <div style="text-align: center;">
-            <asp:Label ID="lblErrorMsg" runat="server" Text="Label" Visible="False"
-                Font-Bold="True" ForeColor="#CC0000"></asp:Label>
             <div class="flex-container">
                 <asp:Button ID="btnUpdateProfile" runat="server" CssClass="styled-btn" Text="Update Account"
                     ValidationGroup="ProfileMaintenance" CausesValidation="true"
