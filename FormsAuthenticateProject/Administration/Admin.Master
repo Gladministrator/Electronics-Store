@@ -6,39 +6,33 @@
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <link rel="stylesheet" href="../Styles/AdministrationStyle.css" type="text/css" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div style="text-align: center;">
             <img src="../Images/Administration.png" alt="Admin" />
-            <br />
-            <div style="text-align: right;">
-                <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
+            <div style="text-align: right; margin: 5px;">
+                <asp:Label ID="lblName" runat="server" Text="Label" CssClass="email-label"></asp:Label>
+                <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click" CssClass="styled-btn-delete">Sign Out</asp:LinkButton>
             </div>
-            <br />
-            <asp:LinkButton ID="lnkHome" runat="server">Home</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkProducts" runat="server" OnClick="lnkProducts_Click">Manage Products</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkManageRoles" runat="server" OnClick="lnkManageRoles_Click">Manage Roles</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkManageCategories" runat="server"
-            OnClick="lnkManageCategories_Click">Manage Categories</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkCustomerMaintenance" runat="server" 
-                OnClick="lnkCustomerMaintenance_Click">Manage Accounts</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkManageSuppliers" runat="server" 
-                OnClick="lnkManageSuppliers_Click">Manage Suppliers</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkReporting" runat="server" OnClick="lnkReporting_Click">Reporting</asp:LinkButton>
-                        &nbsp;&nbsp;
-        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Manage Orders</asp:LinkButton>
+            <div class="nav-links-container">
+                <asp:LinkButton ID="lnkHome" runat="server" CssClass="styled-btn-master"
+                    OnClick="lnkHome_Click">Home</asp:LinkButton>
+                <asp:LinkButton ID="lnkProducts" runat="server" OnClick="lnkProducts_Click" CssClass="styled-btn-master">Manage Products</asp:LinkButton>
+                <asp:LinkButton ID="lnkManageRoles" runat="server" OnClick="lnkManageRoles_Click"
+                    CssClass="styled-btn-master">Manage Roles</asp:LinkButton>
+                <asp:LinkButton ID="lnkManageCategories" runat="server"
+                    OnClick="lnkManageCategories_Click" CssClass="styled-btn-master">Manage Categories</asp:LinkButton>
+                <asp:LinkButton ID="lnkCustomerMaintenance" runat="server"
+                    OnClick="lnkCustomerMaintenance_Click" CssClass="styled-btn-master">Manage Accounts</asp:LinkButton>
+                <asp:LinkButton ID="lnkManageSuppliers" runat="server"
+                    OnClick="lnkManageSuppliers_Click" CssClass="styled-btn-master">Manage Suppliers</asp:LinkButton>
+                <asp:LinkButton ID="lnkReporting" runat="server" OnClick="lnkReporting_Click" CssClass="styled-btn-master">Reporting</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click" CssClass="styled-btn-master">Manage Orders</asp:LinkButton>
+            </div>
         </div>
-
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

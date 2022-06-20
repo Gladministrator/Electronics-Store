@@ -50,11 +50,11 @@ namespace FormsAuthenticateProject
             }
             else if (role == "Shipping")
             {
-                return "~/Customer/default.aspx";
+                return "~/Shipping/default.aspx";
             }
             else
             {
-                return "~/Account/Login.aspx";
+                return "~/Account/Login.aspx?LoginText=You are not Authorized.";
             }
         }
         public static void SignOut(string msg = "You have now signed out")

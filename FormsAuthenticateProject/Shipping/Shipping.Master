@@ -12,21 +12,18 @@
     <form id="form1" runat="server">
         <div style="text-align: center;">
             <img src="../Images/Customer.png" alt="shipping" />
-            <br />
-            <div style="text-align: right;">
-                <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click">Sign Out</asp:LinkButton>
+            <div style="text-align: right;margin:5px;">
+                <asp:Label ID="lblName" runat="server" Text="Label" CssClass="email-label"></asp:Label>
+                <asp:LinkButton ID="lnkSignOut" runat="server" OnClick="lnkSignOut_Click" CssClass="styled-btn-delete">Sign Out</asp:LinkButton>
             </div>
-            <br />
-            <asp:LinkButton ID="lnkHome" runat="server">Home</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="lnkShipping" runat="server"
-            OnClick="lnkShipping_Click">Ship Orders</asp:LinkButton>
-            &nbsp;&nbsp;
-        <asp:LinkButton ID="LinkButton1" runat="server"
-            OnClick="LinkButton1_Click">View Shipped Orders</asp:LinkButton>
-            &nbsp;&nbsp;
+            <div class="nav-links-container">
+                <asp:LinkButton ID="lnkHome" runat="server" CssClass="styled-btn-master" 
+                    OnClick="lnkHome_Click">Home</asp:LinkButton>
+                <asp:LinkButton ID="lnkShipping" runat="server"
+                    OnClick="lnkShipping_Click" CssClass="styled-btn-master">Create Shipments</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton1" runat="server"
+                    OnClick="LinkButton1_Click" CssClass="styled-btn-master">View Shipped Orders</asp:LinkButton>
+            </div>
         </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

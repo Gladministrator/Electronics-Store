@@ -1,25 +1,25 @@
-﻿*{
-    font-family:Arial,sans-serif;
+﻿* {
+    font-family: Arial,sans-serif;
 }
 
 body {
     background-color: #6F9387;
 }
 
-.flex-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    row-gap:15px;
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
 }
 
-.text-label{
-    width:375px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    font-size:20px;
+.text-label {
+    width: 375px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
 }
 
 .styled-btn {
@@ -27,36 +27,36 @@ body {
     border: 1px solid black;
     padding: 5px 0px;
     width: 175px;
-    color:white;
+    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
 }
 
-.styled-btn:hover {
-    cursor: pointer;
-    background-color: #4CAF70;
-    color: black;
-}
+    .styled-btn:hover {
+        cursor: pointer;
+        background-color: #4CAF70;
+        color: black;
+    }
 
 .error-text {
-    color:#c00;
-    font-weight:400;
-    font-size:18px;
+    color: #c00;
+    font-weight: 400;
+    font-size: 18px;
 }
 
-.text-input{
-    display:flex;
-    align-items:center;
-    width:175px;
+.text-input {
+    display: flex;
+    align-items: center;
+    width: 175px;
 }
 
-.flex-row{
-    display:flex;
-    width:375px;
-    align-items:center;
-    justify-content:space-between;
+.flex-row {
+    display: flex;
+    width: 375px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .text-input-registration {
@@ -65,3 +65,31 @@ body {
     width: 230px;
 }
 
+.styled-btn-master {
+    background-color: #ccdedc;
+    border: 1px solid #4974a5;
+    padding: 5px 0px;
+    width: 170px;
+    color: #4974a5;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .styled-btn-master:hover {
+        cursor: pointer;
+        background-color: #DEDCCC;
+        color: #7a49a5;
+    }
+
+.nav-links-container {
+    display: flex;
+    column-gap: 2px;
+    justify-content: center;
+}
+
+.email-label {
+    background: darkcyan;
+    padding: 5.3px;
+    border: 1px solid;
+}

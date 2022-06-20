@@ -100,13 +100,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap:10px;
+    column-gap: 10px;
 }
 
 .text-input-registration {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     width: 230px;
 }
 
@@ -139,10 +139,38 @@ body {
     margin: 10px 0;
 }
 
-.dropdowns{
-    display:flex;
-    justify-content:center;
-    height:20px;
-    margin-bottom:10px;
+.dropdowns {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    margin-bottom: 10px;
 }
 
+.styled-btn-master {
+    background-color: #ccdedc;
+    border: 1px solid #4974a5;
+    padding: 5px 0px;
+    width: 152px;
+    color: #4974a5;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .styled-btn-master:hover {
+        cursor: pointer;
+        background-color: #DEDCCC;
+        color: #7a49a5;
+    }
+
+.nav-links-container {
+    display: flex;
+    column-gap: 2px;
+    justify-content: center;
+}
+
+.email-label {
+    background: darkcyan;
+    padding: 5.3px;
+    border: 1px solid;
+}

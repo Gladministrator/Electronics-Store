@@ -62,5 +62,10 @@ namespace FormsAuthenticateProject.Administration
         {
             Response.Redirect("Reporting.aspx");
         }
+
+        protected void lnkHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("default.aspx");
+        }
     }
 }

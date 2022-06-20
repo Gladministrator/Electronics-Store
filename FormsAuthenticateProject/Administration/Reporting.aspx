@@ -24,11 +24,11 @@
         </asp:GridView>
         <div>
             <asp:Label ID="Label1" runat="server" Text="Total Orders:"></asp:Label>
-            <asp:TextBox ID="txtOrders" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtOrders" runat="server" ReadOnly="true"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="Label2" runat="server" Text="Total Sales:"></asp:Label>
-            <asp:TextBox ID="txtSales" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSales" runat="server" ReadOnly="true"></asp:TextBox>
         </div>
     </div>
 </asp:Content>

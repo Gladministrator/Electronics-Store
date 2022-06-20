@@ -17,36 +17,36 @@ body {
     display: inline-block;
 }
 
-.styled-btn:hover {
-    cursor: pointer;
-    background-color: #4CAF70;
-    color: black;
-}
+    .styled-btn:hover {
+        cursor: pointer;
+        background-color: #4CAF70;
+        color: black;
+    }
 
-.footer-text-input{
-    width:100%;
+.footer-text-input {
+    width: 100%;
 }
 
 .flex-center > div {
     display: flex;
     justify-content: center;
 }
- 
-.flex-center > div > table > tbody > tr >td:first-child > a {
-    background-color: #93876f;
-    border: 1px solid black;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    color:mediumaquamarine;
-}
 
-.flex-col-container{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+    .flex-center > div > table > tbody > tr > td:first-child > a {
+        background-color: #93876f;
+        border: 1px solid black;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        color: mediumaquamarine;
+    }
+
+.flex-col-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .styled-btn-delete {
@@ -55,17 +55,17 @@ body {
     padding: 5px 0px;
     width: 175px;
     color: darkred;
-    font-weight:bold;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
 
-.styled-btn-delete:hover {
-    cursor: pointer;
-    background-color: #936f7b;
-    color: black;
-}
+    .styled-btn-delete:hover {
+        cursor: pointer;
+        background-color: #936f7b;
+        color: black;
+    }
 
 .col-row-gap-25 {
     column-gap: 15px;
@@ -79,7 +79,7 @@ body {
     color: white;
     text-align: center;
     text-decoration: none;
-    white-space:normal;
+    white-space: normal;
 }
 
     .styled-btn-search:hover {
@@ -102,6 +102,7 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+
 .text-input-registration {
     display: flex;
     align-items: center;
@@ -109,8 +110,8 @@ body {
 }
 
 .customer-info-box {
-    display:flex;
-    column-gap:15px;
+    display: flex;
+    column-gap: 15px;
 }
 
     .customer-info-box > span {
@@ -121,4 +122,33 @@ body {
 
 .dropdown-style {
     margin: 10px 0;
+}
+
+.styled-btn-master {
+    background-color: #ccdedc;
+    border: 1px solid #4974a5;
+    padding: 5px 0px;
+    width: 152px;
+    color: #4974a5;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .styled-btn-master:hover {
+        cursor: pointer;
+        background-color: #DEDCCC;
+        color: #7a49a5;
+    }
+
+.nav-links-container {
+    display: flex;
+    column-gap: 2px;
+    justify-content: center;
+}
+
+.email-label {
+    background: darkcyan;
+    padding: 5.3px;
+    border: 1px solid;
 }
