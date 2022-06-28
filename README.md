@@ -1,10 +1,9 @@
 # Electronic Store CRM
 
-### A CRM application where customers can make orders for various electronics. There are 3 roles with distinct functions:
+### A CRM application where customers can make orders for various electronics. The application allows managing accounts, roles, products, 
+categories, orders, tracking order history, viewing sales repors, and shipping orders. Check the screenshots below to see what it looks like!
 
-- Customer
-- Administration
-- Shipping
+There is a scripts sql file that will create the database, tables, and stored procedures. The application can also be run using Internet Information Services for Windows and SQL Server Express.
 
 ### Tech Stack
 
@@ -15,38 +14,32 @@
 
 ### Application Walkthrough
 
-#### Login Screen
+#### Login Page for All Users
 ![LoginScreen](Screenshots/LoginScreen.png)
 
-#### Login Screen
+#### Registration for New Users
 ![Registration](Screenshots/Registration.png)
 
-#### Login Screen
+#### Manage Categories for Products
 ![Categories](Screenshots/ManageCategories.png)
 
-#### Login Screen
+#### Manage Products Sold
 ![Products](Screenshots/ManageProducts.png)
 
-#### Login Screen
-![Accounts Administration](Screenshots/ManagerAccounts.png)
+#### Manage User Accounts
+![Accounts Administration](Screenshots/ManageAccounts.png)
 
-#### Login Screen
+#### Manage Suppliers
 ![Suppliers](Screenshots/ManageSuppliers.png)
 
-#### Login Screen
+#### View Order History
 ![History](Screenshots/OrderHistory.png)
 
-#### Login Screen
+#### Order Products as a Customer
 ![Order Products](Screenshots/OrderProducts.png)
 
-#### Login Screen
+#### Track Orders previous made
 ![Track Orders](Screenshots/TrackOrders.png)
-
-#### Login Screen
-![LoginScreen](Screenshots/LoginScreen.png)
-
-#### Login Screen
-![LoginScreen](Screenshots/LoginScreen.png)
 
 ### Project Goals
 
