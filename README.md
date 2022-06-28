@@ -41,6 +41,9 @@ There is a scripts sql file that will create the database, tables, and stored pr
 #### Track Orders previous made
 ![Track Orders](Screenshots/TrackOrders.png)
 
+#### Make Shipments as a Shipping User
+![Ship Orders](Screenshots/ShipOrders.png)
+
 ### Project Goals
 
 While this project will be my swan song for developing using .NET 4.7, I wanted to make a good final project. I continued to learn SQL and using .NET to interact with the database. I also implemented password hashing using a salt to make the SHA256 hash unique across all users.
