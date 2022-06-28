@@ -13,6 +13,41 @@
 - Webforms
 - SQL
 
+### Application Walkthrough
+
+#### Login Screen
+![LoginScreen](Screenshots/LoginScreen.png)
+
+#### Login Screen
+![Registration](Screenshots/Registration.png)
+
+#### Login Screen
+![Categories](Screenshots/ManageCategories.png)
+
+#### Login Screen
+![Products](Screenshots/ManageProducts.png)
+
+#### Login Screen
+![Accounts Administration](Screenshots/ManagerAccounts.png)
+
+#### Login Screen
+![Suppliers](Screenshots/ManageSuppliers.png)
+
+#### Login Screen
+![History](Screenshots/OrderHistory.png)
+
+#### Login Screen
+![Order Products](Screenshots/OrderProducts.png)
+
+#### Login Screen
+![Track Orders](Screenshots/TrackOrders.png)
+
+#### Login Screen
+![LoginScreen](Screenshots/LoginScreen.png)
+
+#### Login Screen
+![LoginScreen](Screenshots/LoginScreen.png)
+
 ### Project Goals
 
 While this project will be my swan song for developing using .NET 4.7, I wanted to make a good final project. I continued to learn SQL and using .NET to interact with the database. I also implemented password hashing using a salt to make the SHA256 hash unique across all users.

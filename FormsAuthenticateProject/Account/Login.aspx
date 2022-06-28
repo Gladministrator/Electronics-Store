@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="flex-container">
-        <h1 style="text-align: center">Welcome to Substitue Electronics</h1>
+        <h1 style="text-align: center">Welcome to the Electronics Store</h1>
         <asp:Label ID="lblLoginText" runat="server"></asp:Label>
         <div class="text-label">
             <asp:Label ID="Label3" runat="server" Text="Email Address"></asp:Label>
