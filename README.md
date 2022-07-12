@@ -1,4 +1,4 @@
-# Electronic Store Web Application
+# Electronics Store Web Application
 
 ### A CRM web application where customers can make orders for various electronics. The application allows managing accounts, roles, products, 
 categories, orders, tracking order history, viewing sales repors, and shipping orders. Check the screenshots below to see what it looks like!
