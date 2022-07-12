@@ -1,7 +1,7 @@
 # Electronics Store Web Application
 
 A CRM web application where customers can make orders for various electronics. The application allows managing accounts, roles, products, 
-categories, orders, tracking order history, viewing sales repors, and shipping orders. Check the screenshots below to see what it looks like!
+categories, orders, tracking order history, viewing sales reports, and shipping orders. Check the screenshots below to see what it looks like!
 
 There is a scripts sql file that will create the database, tables, and stored procedures. The application can also be run using Internet Information Services for Windows and SQL Server Express.
 
